@@ -1,12 +1,12 @@
---  A testbench for twos_complement_dq_tb
+--  A testbench for circuit_tb
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
 USE ieee.numeric_std.all;
 
-entity twos_complement_dq_tb is
-end twos_complement_dq_tb;
+entity circuit_tb is
+end circuit_tb;
 
-architecture behav of twos_complement_dq_tb is
+architecture behav of circuit_tb is
   component main
     port (
       s_7: in std_logic;
