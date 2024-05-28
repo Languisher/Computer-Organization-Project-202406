@@ -27,6 +27,8 @@ ghdl -e circuit_tb
 ghdl -r circuit_tb --vcd=circuit_tb.vcd
 ```
 
+Return to the command line, type-in `chmod a+x execute.sh` then execute the bash command file: `./execute.sh`.
+
 Now you should find a file named `circuit_tb.vcd` in the same folder. Then execute
 
 ```bash
