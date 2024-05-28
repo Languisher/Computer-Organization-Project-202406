@@ -307,11 +307,67 @@ Therefore, The depth is $2\times 2^{p-2} = 2 ^{p-1}$ and the complexity is $12 \
 
 \textbf{Conclusion: The depth is $2^{p-1} + 1$ and the complexity is $2^p - 1 + 3 \times 2^p = 2^{p+2}-1$}.
 
-(????????????????????? REALLY ????????????????????? 2->4->8->16->32->??)
+(????????????????????? REALLY ????????????????????? )
 
 \subsection{Question 5}
 
 We export the VHDL code based on the circuit designed in the Digital software and generate the code using gtkwave.
+Reminding that the input 8-bit binary number and the output 8-bit binary number are represented by:
+\begin{equation}
+    \overline{s_7s_6s_5s_4s_3s_2s_1s_0} \longrightarrow \overline{c_7c_6c_5c_4c_3c_2c_1c_0}
+\end{equation}
 
+
+The text data is listed in Figure~\ref{fig:test-benchmark}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{assets/test-data.png}
+    \caption{Test Benchmark}
+    \label{fig:test-benchmark}
+\end{figure}
+
+
+As is required, all the ports/input-output have a delay of 1 unit time and all the multiplexer have a delay of 2 unit time.
+The corresponding simulation of signals is shown in Figure~\ref{fig:result-with-delay}.
+
+
+Analysis of the result:
+\begin{itemize}
+    \item Setting the delay of the multiplexer as 2 and the delay of the NOT gate as 1 allow us to directly exploit the result of the NOT gate after the result is calculated. (Figure~\ref{fig:analysis1})
+    \item The calculation of the two 4-bit Lookahead Carry Adder proved the fact the two adders are connected in series. One would begin to operate only after the other hass finished its calculation. (Figure~\ref{fig:analysis2})
+\end{itemize}
+
+(An equivilent expression is shown in Figure~\ref{fig:delay}. It is worthy to note that this code cannot generate VHDL code for the reason that the delay component is not implemented in VHDL (at least not in Digital software))
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{assets/twos_complement_dq_copy_delay.png}
+    \caption{Equivalent Representation of the circuit combined with delated I/O, Gates and Multiplexers. This Representation is also useful to understand the Analysis 1. Part}
+    \label{fig:delay}
+\end{figure}
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{assets/gtkwave-1.png}
+    \caption{Analysis 1: Observation of the time delay of the component {NOT Gate + Multiplexer}. After the signal is passed to the NOT Gate, the NOT Gate generate the result after 1 ns, and the multiplexer generate the result after 2 ns, which is time-efficient}
+    \label{fig:analysis1}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{assets/gtkwave-2.png}
+    \caption{Analysis 2: Observation of the time delay of the two 4-bit Lookahead Carry Adder. The upper four signals correspond to the lower 4-bits of the output. (Note that here, $o_3$ has no actual meaning since the highest bit should be the sign bit)}
+    \label{fig:analysis2}
+\end{figure}
+
+\begin{figure*}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{assets/gtkwave.png}
+    \caption{Result with delay with test data in Figure~\ref{fig:test-benchmark}}
+    \label{fig:result-with-delay}
+\end{figure*}
 
 \end{document}
