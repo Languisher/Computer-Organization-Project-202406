@@ -71,16 +71,6 @@
       </elementAttributes>
       <pos x="640" y="660"/>
     </visualElement>
-    <visualElement>
-      <elementName>Text</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Description</string>
-          <string>Component: Half Adder</string>
-        </entry>
-      </elementAttributes>
-      <pos x="200" y="280"/>
-    </visualElement>
   </visualElements>
   <wires>
     <wire>

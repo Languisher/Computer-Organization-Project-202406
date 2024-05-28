@@ -408,20 +408,6 @@
       <pos x="-120" y="1040"/>
     </visualElement>
     <visualElement>
-      <elementName>Text</elementName>
-      <elementAttributes>
-        <entry>
-          <string>textFontSize</string>
-          <int>48</int>
-        </entry>
-        <entry>
-          <string>Description</string>
-          <string>Question 3</string>
-        </entry>
-      </elementAttributes>
-      <pos x="-200" y="40"/>
-    </visualElement>
-    <visualElement>
       <elementName>adder_4bits.dig</elementName>
       <elementAttributes>
         <entry>

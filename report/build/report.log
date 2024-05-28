@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.19)  28 MAY 2024 11:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.19)  28 MAY 2024 17:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -270,90 +270,96 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2022/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 33.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 31.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 33.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 31.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<assets/half_adder.png, id=1, 586.19pt x 541.02126pt>
+<assets/multiplexer.png, id=1, 377.41pt x 255.95625pt>
+File: assets/multiplexer.png Graphic file (type png)
+<use assets/multiplexer.png>
+Package pdftex.def Info: assets/multiplexer.png  used on input line 64.
+(pdftex.def)             Requested size: 154.80157pt x 104.98569pt.
+<assets/half_adder.png, id=3, 503.8825pt x 480.79625pt>
 File: assets/half_adder.png Graphic file (type png)
 <use assets/half_adder.png>
-Package pdftex.def Info: assets/half_adder.png  used on input line 71.
-(pdftex.def)             Requested size: 258.0pt x 238.11612pt.
-
-Overfull \hbox (6.0pt too wide) in paragraph at lines 71--72
- [][] 
- []
+Package pdftex.def Info: assets/half_adder.png  used on input line 89.
+(pdftex.def)             Requested size: 206.39685pt x 196.93698pt.
+ [1{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<assets/twos_complement.png, id=3, 2071.74pt x 2425.06pt>
+ <./assets/multiplexer.png> <./assets/half_adder.png>]
+<assets/twos_complement.png, id=20, 955.57pt x 1182.4175pt>
 File: assets/twos_complement.png Graphic file (type png)
 <use assets/twos_complement.png>
-Package pdftex.def Info: assets/twos_complement.png  used on input line 80.
-(pdftex.def)             Requested size: 516.0pt x 604.00632pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[1{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
-
-
- <./assets/half_adder.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [2 <./assets/twos_complement.png>]
-<assets/full_adder.png, id=25, 827.09pt x 691.58376pt>
-File: assets/full_adder.png Graphic file (type png)
-<use assets/full_adder.png>
-Package pdftex.def Info: assets/full_adder.png  used on input line 144.
-(pdftex.def)             Requested size: 258.0pt x 215.72894pt.
-
-Overfull \hbox (6.0pt too wide) in paragraph at lines 144--145
- [][] 
- []
-
-<assets/generate_gp.png, id=26, 532.99126pt x 218.8175pt>
+Package pdftex.def Info: assets/twos_complement.png  used on input line 107.
+(pdftex.def)             Requested size: 232.19843pt x 287.32227pt.
+<assets/generate_gp.png, id=21, 467.7475pt x 153.57375pt>
 File: assets/generate_gp.png Graphic file (type png)
 <use assets/generate_gp.png>
-Package pdftex.def Info: assets/generate_gp.png  used on input line 151.
-(pdftex.def)             Requested size: 258.0pt x 105.92268pt.
+Package pdftex.def Info: assets/generate_gp.png  used on input line 178.
+(pdftex.def)             Requested size: 206.39685pt x 67.76715pt.
 
-Overfull \hbox (6.0pt too wide) in paragraph at lines 151--152
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[2 <./assets/twos_complement.png>]
+<assets/full_adder.png, id=29, 827.09pt x 691.58376pt>
+File: assets/full_adder.png Graphic file (type png)
+<use assets/full_adder.png>
+Package pdftex.def Info: assets/full_adder.png  used on input line 218.
+(pdftex.def)             Requested size: 258.0pt x 215.72894pt.
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 218--219
  [][] 
  []
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<assets/adder_4bits.png, id=27, 2043.635pt x 2615.7725pt>
+<assets/adder_4bits.png, id=30, 1021.8175pt x 1307.88625pt>
 File: assets/adder_4bits.png Graphic file (type png)
 <use assets/adder_4bits.png>
-Package pdftex.def Info: assets/adder_4bits.png  used on input line 158.
-(pdftex.def)             Requested size: 516.0pt x 660.44742pt.
+Package pdftex.def Info: assets/adder_4bits.png  used on input line 232.
+(pdftex.def)             Requested size: 258.0pt x 330.2237pt.
 
-LaTeX Warning: Float too large for page by 11.77939pt on input line 161.
+Overfull \hbox (6.0pt too wide) in paragraph at lines 232--233
+ [][] 
+ []
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<assets/twos_complement_dq.png, id=28, 2071.74pt x 2665.96pt>
+<assets/twos_complement_dq.png, id=31, 955.57pt x 1302.8675pt>
 File: assets/twos_complement_dq.png Graphic file (type png)
 <use assets/twos_complement_dq.png>
-Package pdftex.def Info: assets/twos_complement_dq.png  used on input line 165.
-(pdftex.def)             Requested size: 516.0pt x 664.00694pt.
+Package pdftex.def Info: assets/twos_complement_dq.png  used on input line 240.
+(pdftex.def)             Requested size: 232.19843pt x 316.5911pt.
 
-LaTeX Warning: Float too large for page by 15.33891pt on input line 168.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \vbox (badness 2564) has occurred while \output is active []
+
+ [3 <./assets/generate_gp.png> <./assets/full_adder.png> <./assets/adder_4bits.png>]
+<assets/adder_4bits_copy.png, id=38, 658.46pt x 813.0375pt>
+File: assets/adder_4bits_copy.png Graphic file (type png)
+<use assets/adder_4bits_copy.png>
+Package pdftex.def Info: assets/adder_4bits_copy.png  used on input line 264.
+(pdftex.def)             Requested size: 232.19843pt x 286.7012pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+<assets/twos_complement_dq_copy.png, id=39, 1911.14pt x 2364.835pt>
+File: assets/twos_complement_dq_copy.png Graphic file (type png)
+<use assets/twos_complement_dq_copy.png>
+Package pdftex.def Info: assets/twos_complement_dq_copy.png  used on input line 274.
+(pdftex.def)             Requested size: 232.19843pt x 287.30423pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: Text page 4 contains only floats.
+
+[4 <./assets/twos_complement_dq.png> <./assets/adder_4bits_copy.png> <./assets/twos_complement_dq_copy.png>]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -365,20 +371,22 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[3 <./assets/full_adder.png> <./assets/generate_gp.png>] [4 <./assets/adder_4bits.png>] [5 <./assets/twos_complement_dq.png>] (build/report.aux) ) 
+[5
+
+] (build/report.aux) ) 
 Here is how much of TeX's memory you used:
- 4263 strings out of 478038
- 67365 string characters out of 5839071
- 379883 words of memory out of 5000000
- 22653 multiletter control sequences out of 15000+600000
- 512090 words of font info for 110 fonts, out of 8000000 for 9000
+ 4292 strings out of 478038
+ 68156 string characters out of 5839071
+ 379962 words of memory out of 5000000
+ 22680 multiletter control sequences out of 15000+600000
+ 511012 words of font info for 109 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,8n,62p,430b,290s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on build/report.pdf (5 pages, 595661 bytes).
+ 55i,10n,62p,456b,290s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on build/report.pdf (5 pages, 492363 bytes).
 PDF statistics:
- 94 PDF objects out of 1000 (max. 8388607)
- 50 compressed objects within 1 object stream
+ 110 PDF objects out of 1000 (max. 8388607)
+ 56 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

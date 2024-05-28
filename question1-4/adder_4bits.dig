@@ -403,16 +403,6 @@
       </elementAttributes>
       <pos x="1180" y="-60"/>
     </visualElement>
-    <visualElement>
-      <elementName>Text</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Description</string>
-          <string>Component: 4-bit adder</string>
-        </entry>
-      </elementAttributes>
-      <pos x="280" y="-460"/>
-    </visualElement>
   </visualElements>
   <wires>
     <wire>

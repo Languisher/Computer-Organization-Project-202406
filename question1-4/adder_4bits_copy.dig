@@ -18,16 +18,6 @@
       <pos x="500" y="-260"/>
     </visualElement>
     <visualElement>
-      <elementName>Text</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Description</string>
-          <string>Component: 4-bit adder (New)</string>
-        </entry>
-      </elementAttributes>
-      <pos x="240" y="-440"/>
-    </visualElement>
-    <visualElement>
       <elementName>In</elementName>
       <elementAttributes>
         <entry>

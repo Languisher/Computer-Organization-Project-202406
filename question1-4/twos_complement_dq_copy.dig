@@ -408,20 +408,6 @@
       <pos x="-120" y="920"/>
     </visualElement>
     <visualElement>
-      <elementName>Text</elementName>
-      <elementAttributes>
-        <entry>
-          <string>textFontSize</string>
-          <int>48</int>
-        </entry>
-        <entry>
-          <string>Description</string>
-          <string>Question 3 (New)</string>
-        </entry>
-      </elementAttributes>
-      <pos x="-200" y="40"/>
-    </visualElement>
-    <visualElement>
       <elementName>Testcase</elementName>
       <elementAttributes>
         <entry>

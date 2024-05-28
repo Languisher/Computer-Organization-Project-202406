@@ -34,16 +34,6 @@
       <pos x="680" y="480"/>
     </visualElement>
     <visualElement>
-      <elementName>Text</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Description</string>
-          <string>Component: Generation of signal G_i and P_i</string>
-        </entry>
-      </elementAttributes>
-      <pos x="260" y="300"/>
-    </visualElement>
-    <visualElement>
       <elementName>And</elementName>
       <elementAttributes>
         <entry>
