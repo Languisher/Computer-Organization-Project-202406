@@ -7,7 +7,7 @@ Author: English version of the project: by Languisher
 The PDF file can be found [here](report/build/report.pdf)
 
 
-## Guidance to execute in Exercise 5
+## Guidance to execute gtkwave in Exercise 5
 
 First, reassure that `gtkwave` is installed on the server. If not, execute the following lines:
 
