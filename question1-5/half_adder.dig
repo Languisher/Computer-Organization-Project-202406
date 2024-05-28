@@ -76,7 +76,7 @@
       <elementAttributes>
         <entry>
           <string>Description</string>
-          <string>Component: Half Adder (Layout 1)</string>
+          <string>Component: Half Adder</string>
         </entry>
       </elementAttributes>
       <pos x="200" y="280"/>
