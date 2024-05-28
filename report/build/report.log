@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.19)  28 MAY 2024 10:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.19)  28 MAY 2024 11:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/linnan/Desktop/Computer-Organization-Project-202406/report/conference_101719.tex
-(/Users/linnan/Desktop/Computer-Organization-Project-202406/report/conference_101719.tex
+**/Users/linnan/Desktop/Computer-Organization-Project-202406/report/report.tex
+(/Users/linnan/Desktop/Computer-Organization-Project-202406/report/report.tex
 LaTeX2e <2022-06-01> patch level 1
 L3 programming layer <2022-06-16> (./IEEEtran.cls
 Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
@@ -232,8 +232,8 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
 File: l3backend-pdftex.def 2022-04-20 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count282
 \l__pdf_internal_box=\box55
-) (build/conference_101719.aux)
-\openout1 = `conference_101719.aux'.
+) (build/report.aux)
+\openout1 = `report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
@@ -365,17 +365,17 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[3 <./assets/full_adder.png> <./assets/generate_gp.png>] [4 <./assets/adder_4bits.png>] [5 <./assets/twos_complement_dq.png>] (build/conference_101719.aux) ) 
+[3 <./assets/full_adder.png> <./assets/generate_gp.png>] [4 <./assets/adder_4bits.png>] [5 <./assets/twos_complement_dq.png>] (build/report.aux) ) 
 Here is how much of TeX's memory you used:
  4263 strings out of 478038
- 67486 string characters out of 5839071
- 379905 words of memory out of 5000000
+ 67365 string characters out of 5839071
+ 379883 words of memory out of 5000000
  22653 multiletter control sequences out of 15000+600000
  512090 words of font info for 110 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,8n,62p,441b,290s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 55i,8n,62p,430b,290s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on build/conference_101719.pdf (5 pages, 595661 bytes).
+Output written on build/report.pdf (5 pages, 595661 bytes).
 PDF statistics:
  94 PDF objects out of 1000 (max. 8388607)
  50 compressed objects within 1 object stream

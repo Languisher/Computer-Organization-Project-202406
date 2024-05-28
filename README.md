@@ -1,5 +1,10 @@
 # Computer-Organization-Project-202406
+
 Project of the course Computer Organization
+
+Author: English version of the project: by Languisher
+
+The PDF file can be found [here](report/build/report.pdf)
 
 
 ## Guidance to execute in Exercise 5
