@@ -18,7 +18,7 @@ sudo apt-get update
 sudo apt-get install gtkwave
 ```
 
-You should then create a new folder containing all the necessary files (a VHDL file and a test-benchmark file), we will name them `circuit.vhdl` and `circuit-tb.vhdl` later on. Change the current directory into the upper folder of the files.
+You should then create a new folder containing all the necessary files (a VHDL file and a test-benchmark file), we will name them `circuit.vhdl` and `circuit_tb.vhdl` later on. Change the current directory into the upper folder of the files.
 
 Now create a bash file, suppose that the name is `execute.sh`, type in the following command:
 

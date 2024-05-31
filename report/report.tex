@@ -11,7 +11,7 @@
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
-\title{Implementation of a Two's Complement Circuit*\\
+\title{Implementation and Simulation of Simplified Necessary Components of a Classic CPU*\\
 {\footnotesize \textsuperscript{*}Note: Project of the course ICE3405P-Computer Organization}
 }
 
@@ -25,7 +25,7 @@ lns\_brandon@sjtu.edu.cn}
 \IEEEauthorblockA{\textit{SPEIT} \\
 \textit{Shanghai Jiao Tong University}\\
 Shanghai, China \\
-email address or ORCID}
+meng-mou-xu@sjtu.edu.cn}
 }
 
 \maketitle
@@ -41,7 +41,7 @@ component, formatting, style, styling, insert
 \end{IEEEkeywords}
 
 
-\section{Question 1-5}
+\section{Question 1-5: Implementation of a Two's Complement Calculation}
 
 \subsection{Question 1}\label{sec:q_A}
 
@@ -147,7 +147,7 @@ In other words, to calculate the two's representation of $s_k$ of a $2^p$-bit bi
 
 To optimize this process, we fist propose a new version of the two's complement circuit for an 8-bit machine by employing a method that uses two 4-bit lookahead carry adders in series. This approach allows for the calculation of four bits and their carry at once, then passing the carry to the next set of four bits. This reflects the divide and conquer strategy.
 
-\subsubsection{Two 4-bit Lookahead Adders in Series}
+\subsubsection{Two 4-bit Lookahead Adders in Series}\label{sec:3-A}
 
 The implementation involves the following steps:
 \begin{enumerate}
@@ -281,7 +281,7 @@ It seems feasible for $p$ relatively small. However, if $p$ is much more greater
 comparatively high. Calculation of depth and complexity of this circuit is shown in Secion~\ref{sec:q4}. The divide and conquer method is not fully implemented since we're only grouping up 4 bits together and then calculate them one by one. There are still spaces of improvement.
 
 
-\subsubsection{Solution for binary numbers with much more bits}
+\subsubsection{Solution for binary numbers with much more bits}\label{sec:3-B}
 
 A real divide and conquer solution is like this: we separate the bits into groups of 2 bits, calculate the values separately, then comebine them into groups of 4 bits, then calculate the values separately, e.t.c.
 
@@ -398,18 +398,32 @@ In general, to add between $2^p$-bits binary numbers where $p \in \mathbb{N}^*$ 
     \end{equation} 
 \end{itemize}
 
-Based on this analysis, a 4-bits Adder with eight values output is shown in Figure~\ref{fig:4bits_adder}.
+Based on this analysis, a 4-bits Adder with ten values output is shown in Figure~\ref{fig:4bits_adder}, and a 8-bits Adder with eighteen values output is shown Figure~\ref{fig:8bits_adder}.
 
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.45\textwidth]{assets/4bits_adder.png}
-\caption{Implementation of a 4-bits Adder with eight values output. The 2-bit Adder displayed in Figure~\ref{fig:2bits_adder} is utilized.}
+\caption{Implementation of a 4-bits Adder with eight values output. The 2-bits Adder displayed in Figure~\ref{fig:2bits_adder} is utilized.}
 \label{fig:4bits_adder}
 \end{figure}
 
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.45\textwidth]{assets/8bits_adder.png}
+\caption{Implementation of a 8-bits Adder with eighteen values output. The 4-bits Adder displayed in Figure~\ref{fig:4bits_adder} is utilized.}
+\label{fig:8bits_adder}
+\end{figure}
+
+Using the 8-bits Adder implemented above, we design our final edition of the two's complement circuit: Using Multiplexer, the circuit is displayed in Figure~\ref{fig:twos_complement_course}.
 
 
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.45\textwidth]{assets/twos_complement_course.png}
+\caption{Implementation of a 8-bits Adder with eighteen values output. The 8-bits Adder displayed in Figure~\ref{fig:8bits_adder} is utilized.}
+\label{fig:twos_complement_course}
+\end{figure}
 
 
     
@@ -418,7 +432,7 @@ Based on this analysis, a 4-bits Adder with eight values output is shown in Figu
 \subsubsection{Calculation for the first implementation}\label{sec:q4}
 
 
-For a 8-bit two's complement circuit, to calculate the depth and complexity of the circuit, we divide the circuit into two parts:
+For a 8-bit two's complement circuit implemented in Section~\ref{sec:3-A}, to calculate the depth and complexity of the circuit, we divide the circuit into two parts:
 \begin{enumerate}
     \item In the \textbf{inversion stage}, all components are inversed simultaneously, thus depth is 1 and amount of NOT gates required is 7.
     \item In the \textbf{addition stage}, the two 4-bit lookahead carry adder one after another. They are connected in series.
@@ -445,11 +459,72 @@ The main concept is to divide the large binary number into groups of 4-bit binar
 Therefore, The depth is $2\times 2^{p-2} = 2 ^{p-1}$ and the complexity is $12 \times 2^{p-2} = 3 \times 2^p$ in the addition stage.
 
 
-\textbf{Conclusion: The depth is $2^{p-1} + 1$ and the complexity is $2^p - 1 + 3 \times 2^p = 2^{p+2}-1$}.
+\textbf{Conclusion: For $p \geq 1$, The depth is $2^{p-1} + 1$ and the complexity is $2^p - 1 + 3 \times 2^p = 2^{p+2}-1$}.
 
 
+\subsubsection{Calculation for the second implementation}\label{sec:q4-2}
+
+For the circuit implemented in Section~\ref{sec:3-B}, the depth could be calculated as follows:
+
+\begin{itemize}
+    \item In the \textbf{inversion stage}, the depth is 1 and the amount of NOT gates required is 7.
+    \item In the \textbf{addition stage}, suppose that to implement a $2^{p-1}$-bits adder where $p \in \mathbb{N}^*$ and $p \geq 1$, the depth in this stage (Note: its worthy to limit the range only in the addition stage) is $d_{p-1}$ and the complexity is $c_{p-1}$. 
+    Therefore, the depth of a $2^p$-bits adder in this stage is 
+    \begin{equation}
+        d_p = d_{p-1} + 3
+    \end{equation}
+    since the longest route is NOT gate-AND gate-OR gate.
+    Moreover, the complexity in this stage is
+    \begin{equation}\label{eq:complexity}
+        c_p = 2 \times c_{p-1} + 4 \times 2^p + 2 \times 2
+    \end{equation}
+\end{itemize}
+
+We then calculate the the expression for $d_p$ and $c_p$ based on their recurrent expressions.
+
+\begin{equation}
+    d_p = \begin{cases}
+        2 \quad &\text{if} \quad p = 0 \\
+        3p + d_0 = 3p + 2 &\text{others}
+    \end{cases}
+\end{equation}
+
+The solution for the homogeneous part of Equation~\ref{eq:complexity} is $c_p^{(h)} = A \times 2^p$. Suppose the particular solution $c_p^{(p)} = k_p\times 2^p$ where the expression of $k_p$ to be determined.
+
+\begin{gather*}
+    k_p \times 2^p = 2 \times k_{p-1} \times 2^{p-1} + 4 \times (2^p+1) \\
+    k_p - k_{p-1} =4 + 4 \times \frac{1}{2^p}
+\end{gather*}
+
+Therefore the expression of $k_p$ is 
+
+\begin{equation}
+    k_p = k_0 +  4p + 4 \times \sum_{i=1}^{p} \frac{1}{2}^{i} = k_0 + 4p+4- \frac{4}{2^p}
+\end{equation}
+
+Finally, From Figure~\ref{fig:1bit_adder}, $c_0 = 4$ therefore
+
+\begin{equation}
+    k_0 \times 2^0 = 4
+\end{equation}
+
+$k_0 = 4$ thus the expression of $c_p$ is 
+
+\begin{equation}
+    c_p = (8 + 4p - \frac{4}{2^p}) 2^p = (2+ p) \times 2^{p+2} - 4
+\end{equation}
+
+We could validate this result by calculating the amount of gates utilized from Figure~\ref{fig:1bit_adder} to \ref{fig:4bits_adder}, where $c_0 = 4$, $c_1=20$, $c_2=60$.
+
+
+\textbf{Conclusion: Therefore, after considering all of the two stages, as for a 8-bit two's complement circuit, the depth is $3p+3$ and the complexity is $(2+p)2^{p+2} + 3$.}
 
 \subsection{Question 5}
+
+In this section, we use the circuit of Figure~\ref{fig:tc-dq-optimize}.
+
+(Explanation: Since we provide multiple solutions in our projecte, we consider selecting one of them as feasible since it is not specified in the question. To export the circuit of Figure~\ref{fig:twos_complement} needs to change all
+the output labels $R_1$ into some other alphabets, as we have tested that it would lead to errors, saying that the name $r$ and $R$ collide with each other.)
 
 We export the VHDL code based on the circuit designed in the Digital software and generate the code using gtkwave.
 Reminding that the input 8-bit binary number and the output 8-bit binary number are represented by:
@@ -478,7 +553,7 @@ Analysis of the result:
     \item The calculation of the two 4-bit Lookahead Carry Adder proved the fact the two adders are connected in series. One would begin to operate only after the other hass finished its calculation. (Figure~\ref{fig:analysis2})
 \end{itemize}
 
-(An equivilent expression is shown in Figure~\ref{fig:delay}. It is worthy to note that this code cannot generate VHDL code for the reason that the delay component is not implemented in VHDL (at least not in Digital software))
+(An equivlent expression is shown in Figure~\ref{fig:delay}. It is worthy to note that this code cannot generate VHDL code for the reason that the delay component is not implemented in VHDL (at least not in Digital software))
 
 
 \begin{figure}[h!]
@@ -510,7 +585,9 @@ Analysis of the result:
     \label{fig:result-with-delay}
 \end{figure}
 
-\section{Question 5-9}
+\section{Question 6-10}
+
+NOT COMPLETED !!!!!!
 
 \subsection{Question 9}
 
@@ -539,6 +616,5 @@ the clock signal is high. The trigger in the middle could be excitated if two co
 \end{figure}
 
 
-\section{Question 10: Conclusion}
 
 \end{document}

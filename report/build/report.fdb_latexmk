@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1717150487 "/Users/linnan/Desktop/Computer-Organization-Project-202406/report/report.tex" "build/report.pdf" "report" 1717150492
-  "/Users/linnan/Desktop/Computer-Organization-Project-202406/report/report.tex" 1717150482 24334 fa44b3d0d48e5949d3db4180b9bd397c ""
+["pdflatex"] 1717178544 "/Users/linnan/Desktop/Computer-Organization-Project-202406/report/report.tex" "build/report.pdf" "report" 1717178553
+  "/Users/linnan/Desktop/Computer-Organization-Project-202406/report/report.tex" 1717178544 28123 00413c8941d7946ff6e7e87fbb2b8596 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -86,7 +86,8 @@
   "IEEEtran.cls" 1716176822 281957 5b2e4fa15b0f7eabb840ebf67df4c0f7 ""
   "assets/1bit_adder.png" 1717140759 14559 928bdc437afe351d5de5316e64c02d74 ""
   "assets/2bits_adder.png" 1717147768 105312 9498d7e282f53823a8c531b4d7780040 ""
-  "assets/4bits_adder.png" 1717150349 163679 07cd44e1006797decf65ec990b251333 ""
+  "assets/4bits_adder.png" 1717173407 178137 64a12bce76b56101ab2f18034a87256d ""
+  "assets/8bits_adder.png" 1717155101 298274 78376e685112e51dca4b4f525ca14865 ""
   "assets/adder_4bits.png" 1716884293 107246 4e2e315f34bdbc243db62faaa3e7b73e ""
   "assets/adder_4bits_copy.png" 1716897567 44315 a478440f61882e4ada6068c76f3a7fbb ""
   "assets/full_adder.png" 1716863672 26253 c89b201ac3590256d393a72dcc270670 ""
@@ -100,11 +101,12 @@
   "assets/trigger-output.png" 1717038293 25196 daea67709a6030d6521bfc4bde1f330c ""
   "assets/triggers.png" 1717038380 20512 64314478a2f36ab40ea1c490b57b484c ""
   "assets/twos_complement.png" 1716884578 61733 47b85f5b118e4f46c19e3e285c055a8a ""
+  "assets/twos_complement_course.png" 1717173974 178153 bae8e18427173b9a608b41a2e8a31698 ""
   "assets/twos_complement_dq.png" 1716884887 65292 5e22151d884bb470f3d35570e3be5720 ""
   "assets/twos_complement_dq_copy.png" 1716885437 166819 43da1e18a40964fb810214329734a458 ""
   "assets/twos_complement_dq_copy_delay.png" 1716906575 79909 daeb49e703764ffdfbf808b3e0693567 ""
-  "build/report.aux" 1717150491 6637 987636f9a9a4de1eac4bf80d2b1c9073 "pdflatex"
-  "report.tex" 1717150482 24334 fa44b3d0d48e5949d3db4180b9bd397c ""
+  "build/report.aux" 1717178552 7466 31a59657eb767928ee1ebf9af4281238 "pdflatex"
+  "report.tex" 1717178544 28123 00413c8941d7946ff6e7e87fbb2b8596 ""
   (generated)
   "build/report.aux"
   "build/report.log"
