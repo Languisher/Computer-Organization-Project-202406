@@ -145,7 +145,9 @@ Conclusion: For a $2^p$-bit two's complement circuit, the depth is $2^p$, and th
 In order to reduce the depth of the circuit, having a closer look at the circuit implemented in Section~\ref{sec:q_A}, the main problem is that the CarryOut is passed on in series.
 In other words, to calculate the two's representation of $s_k$ of a $2^p$-bit binary number ($0 < k \leq 2^p-2$), we have to wait for the values of $k-1$ CarryOuts one by one.
 
-To optimize this process, we propose a new version of the two's complement circuit for an 8-bit machine by employing a method that uses two 4-bit lookahead carry adders in series. This approach allows for the calculation of four bits and their carry at once, then passing the carry to the next set of four bits. This reflects the divide and conquer strategy.
+To optimize this process, we fist propose a new version of the two's complement circuit for an 8-bit machine by employing a method that uses two 4-bit lookahead carry adders in series. This approach allows for the calculation of four bits and their carry at once, then passing the carry to the next set of four bits. This reflects the divide and conquer strategy.
+
+\subsubsection{Two 4-bit Lookahead Adders in Series}
 
 The implementation involves the following steps:
 \begin{enumerate}
@@ -275,8 +277,146 @@ The corresponding 8-bit two's complement circuit is shown in Figure~\ref{fig:tc-
     \caption{Optimized 8-bit Two's Complement Circuit (Divide and Conquer Method) Based on 4-bit Lookahead Carry Adder Proposed in Figure~\ref{fig:lca-optimize}}
     \label{fig:tc-dq-optimize}
     \end{figure}
+It seems feasible for $p$ relatively small. However, if $p$ is much more greater (e.g. to sum up two 64-bit binary numbers), the depth is still
+comparatively high. Calculation of depth and complexity of this circuit is shown in Secion~\ref{sec:q4}. The divide and conquer method is not fully implemented since we're only grouping up 4 bits together and then calculate them one by one. There are still spaces of improvement.
+
+
+\subsubsection{Solution for binary numbers with much more bits}
+
+A real divide and conquer solution is like this: we separate the bits into groups of 2 bits, calculate the values separately, then comebine them into groups of 4 bits, then calculate the values separately, e.t.c.
+
+We analyse as follows (with some notations):
+A 1-bit adder is: 
+\begin{equation}
+    a_0 + b_0 = \overline{r_0s_0} \quad \text{with}\quad \begin{cases}
+        r_0 = a_0 \wedge b_0 \\
+        s_0 = a_0 \oplus b_0
+\end{cases}
+\end{equation}
+
+If we consider the carry from the former bit, knowing that 
+\begin{equation}
+    1 + \overline{r_0 s_0} = \overline{R_0 t_0} \quad \text{with} \quad \begin{cases}
+        R_0 = (a_0 \wedge 1) \vee (b_0 \wedge 1) = a_0 \vee b_0  \\
+        t_0 = s_0 + 1 = a_0 \oplus b_0 + 1
+    \end{cases}
+\end{equation}
+
+(It is worthy to know that, since $t_0 = s_0 + 1$, we could add a NOT gate to calculate the value of $t_0$.)
+To execute ADD operation, four values ($r$, $s$, $R$, $t$) should be output so as to be passed on. $R$ could be understand as carry could be generated if it is excited by former bits.
+The implementation is shown in Figure~\ref{fig:1bit_adder}.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.45\textwidth]{assets/1bit_adder.png}
+\caption{Implementation of a 1-bit Adder with four values output}
+\label{fig:1bit_adder}
+\end{figure}
+
+To add two 2-bits binary numbers, we first calculate the four values of each corresponding bits. We name them $r_{1,0}, s_{1,0}, R_{1, 0}, t_{1,0}$ and $r_{1, 1}, s_{1, 1}, R_{1, 1}, t_{1, 1}$ accordingly.
+Thus, a 2-bit adder is:
+\begin{equation}
+    \overline{a_1 a_0} + \overline{b_1 b_0} = \overline{r_1 s_1 s_0} \quad \text{with} \quad \begin{cases}
+        r_1 = r_{1,1} \vee (r_{1,0} \wedge R_{1,1}) \\
+        s_1 = \begin{cases}
+        s_{1, 1} \; \text{if} \; r_{1, 0} = 0 \\
+        t_{1, 1} \; \text{if} \; r_{1, 0} = 1
+        \end{cases} \\
+        s_0 \; \text{unchanged}
+    \end{cases}
+\end{equation}
+
+Similarly, using the notation $1 + \overline{r_1 s_1 s_0} = \overline{R_1 t_1 t_0}$, the 2-bits Adder should calculate the value of $R_1$, $t_1$ and $t_0$ with expressions:
+
+\begin{equation}
+    1 + \overline{r_1 s_1 s_0} = \overline{R_1 t_1 t_0} \quad \text{with} \quad \begin{cases}
+    R_1 = r_{1,1} \vee (R_{1,1} \wedge R_{1,0}) \\ 
+    t_1 = \begin{cases}
+        s_{1, 1} \; \text{if} \; R_{1, 0} = 0 \\
+        t_{1, 1} \; \text{if} \; R_{1, 0} = 1 
+    \end{cases} \\
+    t_0 \; \text{unchanged}
+    \end{cases}
+\end{equation}
+
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.45\textwidth]{assets/2bits_adder.png}
+\caption{Implementation of a 2-bits Adder with six values output. The 1-bit Adder displayed in Figure~\ref{fig:1bit_adder} is utilized.}
+\label{fig:2bits_adder}
+\end{figure}
+
+Corresponding circuit implementation is shown in Figure~\ref{fig:2bits_adder}.
+
+
+In general, to add between $2^p$-bits binary numbers where $p \in \mathbb{N}^*$ and $p \geq 1$, suppose that the calculation of two $2^{p-1}$-bits Adders are resp. $r_{1,0}, s_{2^{p-1},0}, \dots, s_{1,0}, t_{2^{p-1}, 0}, \dots, t_{1,0}, R_{1,0}$ and $r_{1,1},  s_{2^{p-1},1}, \dots, s_{1,1}, t_{2^{p-1}, 1}, \dots, t_{1,1}, R_{1,1}$, depending on values of $r_{1,0}$ and $R_{1,0}$:
+\begin{itemize}
+    \item If $r_{1,0}=0$ and $R_{1,0}=0$, $r_1 = r_{1,1}$, $R_1 = r_{1,1}$,
+    \begin{equation}
+        s_k = \begin{cases}
+            s_{k,1} \quad \text{if} \quad 1 \leq k \leq 2^{p-1} \\
+            s_{k,2} \quad \text{others}
+        \end{cases}
+    \end{equation}
+    and
+    \begin{equation}
+        t_k = \begin{cases}
+            t_{k,1} \quad \text{if} \quad 1 \leq k \leq 2^{p-1} \\
+            s_{k,2} \quad \text{others}
+        \end{cases}
+    \end{equation}
+    (Note: the higher half of the $t$ values is equal to $s$ since nothing would be changed even if the binary number is added by one)
+    \item If $r_{1,0}=0$ and $R_{1,0}=1$, we concatenate the result, that is to say, $r_1 = r_{1,1}$, $R_1 = R_{1,1}$,
+    \begin{equation}
+        s_k = \begin{cases}
+            s_{k,1} \quad \text{if} \quad 1 \leq k \leq 2^{p-1} \\
+            s_{k,2} \quad \text{others}
+        \end{cases}
+    \end{equation}
+    and
+    \begin{equation}
+        t_k = \begin{cases}
+            t_{k,1} \quad \text{if} \quad 1 \leq k \leq 2^{p-1} \\
+            t_{k,2} \quad \text{others}
+        \end{cases}
+    \end{equation} 
+    \item If $r_{1,0}=1$ and $R_{1,0}=1$, we concatenate the result, that is to say, $r_1 = R_{1,1}$, $R_1 = R_{1,1}$,
+    \begin{equation}
+        s_k = \begin{cases}
+            s_{k,1} \quad \text{if} \quad 1 \leq k \leq 2^{p-1} \\
+            t_{k,2} \quad \text{others}
+        \end{cases}
+    \end{equation}
+    and
+    \begin{equation}
+        t_k = \begin{cases}
+            t_{k,1} \quad \text{if} \quad 1 \leq k \leq 2^{p-1} \\
+            t_{k,2} \quad \text{others}
+        \end{cases}
+    \end{equation} 
+\end{itemize}
+
+Based on this analysis, a 4-bits Adder with eight values output is shown in Figure~\ref{fig:4bits_adder}.
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.45\textwidth]{assets/4bits_adder.png}
+\caption{Implementation of a 4-bits Adder with eight values output. The 2-bit Adder displayed in Figure~\ref{fig:2bits_adder} is utilized.}
+\label{fig:4bits_adder}
+\end{figure}
+
+
+
+
+
     
 \subsection{Question 4}
+
+\subsubsection{Calculation for the first implementation}\label{sec:q4}
+
 
 For a 8-bit two's complement circuit, to calculate the depth and complexity of the circuit, we divide the circuit into two parts:
 \begin{enumerate}
@@ -307,7 +447,7 @@ Therefore, The depth is $2\times 2^{p-2} = 2 ^{p-1}$ and the complexity is $12 \
 
 \textbf{Conclusion: The depth is $2^{p-1} + 1$ and the complexity is $2^p - 1 + 3 \times 2^p = 2^{p+2}-1$}.
 
-(????????????????????? REALLY ????????????????????? )
+
 
 \subsection{Question 5}
 
@@ -363,11 +503,42 @@ Analysis of the result:
     \label{fig:analysis2}
 \end{figure}
 
-\begin{figure*}[h!]
+\begin{figure}[h!]
     \centering
-    \includegraphics[width=\textwidth]{assets/gtkwave.png}
+    \includegraphics[width=0.5\textwidth]{assets/gtkwave.png}
     \caption{Result with delay with test data in Figure~\ref{fig:test-benchmark}}
     \label{fig:result-with-delay}
-\end{figure*}
+\end{figure}
+
+\section{Question 5-9}
+
+\subsection{Question 9}
+
+First, we will introduce several elements embedded in our implementation in the sections later on.
+
+\subsubsection{Memory}
+
+\subsubsection{Trigger}
+
+To synchronize all the signals in the system. We need a clock signal to control all the elements. The term trigger is used to synchronize the signals
+with the global status of the whole system. Figure~\ref{fig:triggers} compares three types of triggers based on different excitation mode. The uppermost, which is the simplest trigger could be excitated if
+the clock signal is high. The trigger in the middle could be excitated if two consecutive high clock signals are detected, and the third trigger could be excitated if two consecutive low clock signals are detected. Corresponding output is shown in Figure~\ref{fig:trigger-output}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{assets/triggers.png}
+    \caption{Triggers of different mode}
+    \label{fig:triggers}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.3\textwidth]{assets/trigger-output.png}
+    \caption{Triggered output figure of different triggers}
+    \label{fig:trigger-output}
+\end{figure}
+
+
+\section{Question 10: Conclusion}
 
 \end{document}

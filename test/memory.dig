@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>2</version>
+  <attributes/>
+  <visualElements/>
+  <wires>
+    <wire>
+      <p1 x="460" y="180"/>
+      <p2 x="700" y="180"/>
+    </wire>
+  </wires>
+  <measurementOrdering/>
+</circuit>

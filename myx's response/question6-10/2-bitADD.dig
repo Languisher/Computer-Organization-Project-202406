@@ -154,11 +154,21 @@
       <pos x="560" y="380"/>
     </visualElement>
     <visualElement>
+      <elementName>Const</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Value</string>
+          <long>0</long>
+        </entry>
+      </elementAttributes>
+      <pos x="440" y="140"/>
+    </visualElement>
+    <visualElement>
       <elementName>In</elementName>
       <elementAttributes>
         <entry>
           <string>Label</string>
-          <string>Sign</string>
+          <string>signe</string>
         </entry>
       </elementAttributes>
       <pos x="440" y="380"/>
@@ -178,16 +188,6 @@
       <elementAttributes/>
       <pos x="1360" y="140"/>
     </visualElement>
-    <visualElement>
-      <elementName>Ground</elementName>
-      <elementAttributes>
-        <entry>
-          <string>rotation</string>
-          <rotation rotation="1"/>
-        </entry>
-      </elementAttributes>
-      <pos x="440" y="160"/>
-    </visualElement>
   </visualElements>
   <wires>
     <wire>
@@ -199,7 +199,7 @@
       <p2 x="800" y="640"/>
     </wire>
     <wire>
-      <p1 x="440" y="160"/>
+      <p1 x="480" y="160"/>
       <p2 x="560" y="160"/>
     </wire>
     <wire>
@@ -249,6 +249,10 @@
     <wire>
       <p1 x="920" y="360"/>
       <p2 x="1000" y="360"/>
+    </wire>
+    <wire>
+      <p1 x="440" y="140"/>
+      <p2 x="480" y="140"/>
     </wire>
     <wire>
       <p1 x="520" y="140"/>
@@ -377,6 +381,10 @@
     <wire>
       <p1 x="1000" y="380"/>
       <p2 x="1020" y="380"/>
+    </wire>
+    <wire>
+      <p1 x="480" y="140"/>
+      <p2 x="480" y="160"/>
     </wire>
     <wire>
       <p1 x="960" y="220"/>

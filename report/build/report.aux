@@ -11,6 +11,7 @@
 \newlabel{fig:twos_complement}{{3}{2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {I-B}}Question 2}{2}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {I-C}}Question 3}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {I-C}1}Two 4-bit Lookahead Adders in Series}{2}{}\protected@file@percent }
 \newlabel{eq:carry-bit}{{5}{2}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces GP Generator Circuit}}{3}{}\protected@file@percent }
 \newlabel{fig:gp_generator}{{4}{3}}
@@ -24,20 +25,38 @@
 \newlabel{fig:lca}{{6}{3}}
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces 8-bit Two's Complement Circuit (Divide and Conquer Method) Based on Full-Adders}}{4}{}\protected@file@percent }
 \newlabel{fig:tc-dq}{{7}{4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {I-D}}Question 4}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {I-C}2}Solution for binary numbers with much more bits}{4}{}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Optimized 4-bit Lookahead Carry Adder based on Half-Adders and simplified gates}}{4}{}\protected@file@percent }
 \newlabel{fig:lca-optimize}{{8}{4}}
 \@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Optimized 8-bit Two's Complement Circuit (Divide and Conquer Method) Based on 4-bit Lookahead Carry Adder Proposed in Figure\nobreakspace  {}\ref {fig:lca-optimize}}}{4}{}\protected@file@percent }
 \newlabel{fig:tc-dq-optimize}{{9}{4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {I-E}}Question 5}{5}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Test Benchmark}}{5}{}\protected@file@percent }
-\newlabel{fig:test-benchmark}{{10}{5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Equivalent Representation of the circuit combined with delated I/O, Gates and Multiplexers. This Representation is also useful to understand the Analysis 1. Part}}{5}{}\protected@file@percent }
-\newlabel{fig:delay}{{11}{5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Analysis 1: Observation of the time delay of the component {NOT Gate + Multiplexer}. After the signal is passed to the NOT Gate, the NOT Gate generate the result after 1 ns, and the multiplexer generate the result after 2 ns, which is time-efficient}}{5}{}\protected@file@percent }
-\newlabel{fig:analysis1}{{12}{5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Analysis 2: Observation of the time delay of the two 4-bit Lookahead Carry Adder. The upper four signals correspond to the lower 4-bits of the output. (Note that here, $o_3$ has no actual meaning since the highest bit should be the sign bit)}}{6}{}\protected@file@percent }
-\newlabel{fig:analysis2}{{13}{6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Result with delay with test data in Figure\nobreakspace  {}\ref {fig:test-benchmark}}}{7}{}\protected@file@percent }
-\newlabel{fig:result-with-delay}{{14}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Implementation of a 1-bit Adder with four values output}}{5}{}\protected@file@percent }
+\newlabel{fig:1bit_adder}{{10}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Implementation of a 2-bits Adder with six values output. The 1-bit Adder displayed in Figure\nobreakspace  {}\ref {fig:1bit_adder} is utilized.}}{5}{}\protected@file@percent }
+\newlabel{fig:2bits_adder}{{11}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {I-D}}Question 4}{5}{}\protected@file@percent }
+\newlabel{sec:q4}{{\mbox  {I-D}1}{5}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {I-D}1}Calculation for the first implementation}{5}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Implementation of a 4-bits Adder with eight values output. The 2-bit Adder displayed in Figure\nobreakspace  {}\ref {fig:2bits_adder} is utilized.}}{6}{}\protected@file@percent }
+\newlabel{fig:4bits_adder}{{12}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {I-E}}Question 5}{6}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Test Benchmark}}{6}{}\protected@file@percent }
+\newlabel{fig:test-benchmark}{{13}{6}}
+\@writefile{toc}{\contentsline {section}{\numberline {II}Question 5-9}{6}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-A}}Question 9}{6}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {II-A}1}Memory}{6}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {II-A}2}Trigger}{6}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {III}Question 10: Conclusion}{6}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Equivalent Representation of the circuit combined with delated I/O, Gates and Multiplexers. This Representation is also useful to understand the Analysis 1. Part}}{7}{}\protected@file@percent }
+\newlabel{fig:delay}{{14}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Analysis 1: Observation of the time delay of the component {NOT Gate + Multiplexer}. After the signal is passed to the NOT Gate, the NOT Gate generate the result after 1 ns, and the multiplexer generate the result after 2 ns, which is time-efficient}}{7}{}\protected@file@percent }
+\newlabel{fig:analysis1}{{15}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Analysis 2: Observation of the time delay of the two 4-bit Lookahead Carry Adder. The upper four signals correspond to the lower 4-bits of the output. (Note that here, $o_3$ has no actual meaning since the highest bit should be the sign bit)}}{7}{}\protected@file@percent }
+\newlabel{fig:analysis2}{{16}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Result with delay with test data in Figure\nobreakspace  {}\ref {fig:test-benchmark}}}{7}{}\protected@file@percent }
+\newlabel{fig:result-with-delay}{{17}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Triggers of different mode}}{7}{}\protected@file@percent }
+\newlabel{fig:triggers}{{18}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces Triggered output figure of different triggers}}{7}{}\protected@file@percent }
+\newlabel{fig:trigger-output}{{19}{7}}
 \gdef \@abspage@last{7}

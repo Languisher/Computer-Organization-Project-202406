@@ -18,7 +18,7 @@
       <elementAttributes>
         <entry>
           <string>Label</string>
-          <string>Sign</string>
+          <string>signe</string>
         </entry>
       </elementAttributes>
       <pos x="120" y="200"/>
@@ -68,10 +68,10 @@
       <elementAttributes>
         <entry>
           <string>Label</string>
-          <string>R_1</string>
+          <string>R1</string>
         </entry>
       </elementAttributes>
-      <pos x="480" y="300"/>
+      <pos x="480" y="280"/>
     </visualElement>
     <visualElement>
       <elementName>Not</elementName>
@@ -167,6 +167,10 @@
     <wire>
       <p1 x="160" y="240"/>
       <p2 x="160" y="320"/>
+    </wire>
+    <wire>
+      <p1 x="480" y="280"/>
+      <p2 x="480" y="300"/>
     </wire>
     <wire>
       <p1 x="200" y="120"/>

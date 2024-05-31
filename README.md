@@ -2,9 +2,11 @@
 
 Project of the course Computer Organization
 
-Author: English version of the project: by Languisher
+Author: Nan Lin and Yanxu Meng
 
-The PDF file can be found [here](report/build/report.pdf)
+The requirement of the project can be found [here](assignment/Projet.pdf).
+
+The PDF version of the report can be found [here](report/build/report.pdf).
 
 
 ## Guidance to execute gtkwave in Exercise 5
