@@ -145,7 +145,7 @@ Conclusion: For a $2^p$-bit two's complement circuit, the depth is $2^p$, and th
 In order to reduce the depth of the circuit, having a closer look at the circuit implemented in Section~\ref{sec:q_A}, the main problem is that the CarryOut is passed on in series.
 In other words, to calculate the two's representation of $s_k$ of a $2^p$-bit binary number ($0 < k \leq 2^p-2$), we have to wait for the values of $k-1$ CarryOuts one by one.
 
-To optimize this process, we fist propose a new version of the two's complement circuit for an 8-bit machine by employing a method that uses two 4-bit lookahead carry adders in series. This approach allows for the calculation of four bits and their carry at once, then passing the carry to the next set of four bits. This reflects the divide and conquer strategy.
+To optimize this process, we first propose a new version of the two's complement circuit for an 8-bit machine by employing a method that uses two 4-bit lookahead carry adders in series. This approach allows for the calculation of four bits and their carry at once, then passing the carry to the next set of four bits. This reflects the divide and conquer strategy.
 
 \subsubsection{Two 4-bit Lookahead Adders in Series}\label{sec:3-A}
 
@@ -159,7 +159,7 @@ The implementation involves the following steps:
     \end{itemize}
 \end{enumerate}
 
-We then implement a classical 4-bit lookahead carry adders which could be found in textbooks. First we introduce two fundamental components.
+We then implement a classical 4-bit lookahead carry adder which can be found in textbooks. First, we introduce two fundamental components.
 
 In digital circuits, the Generate-Propagate (GP) logic is used to speed up the carry calculation in adders. For two binary inputs $A_i$ and $B_i$, the generate ($G_i$) and propagate ($P_i$) signals are defined as:
 \begin{equation}
@@ -168,7 +168,7 @@ g_i = a_i \cdot b_i
 \begin{equation}
 p_i = a_i + b_i
 \end{equation}
-The GP generator is used to generate respectively the AND and OR result of two variables, this result will be deploited later on.
+The GP generator is used to generate respectively the AND and OR results of two variables, this result will be exploited later on.
 The implementation of the GP generator is displayed in Figure~\ref{fig:gp_generator}. For any bit, the value is 
 \begin{equation}
     \forall k \in [\![1, 2^p-2]\!], \quad s_k = a_k + b_k + c_{k-1}
@@ -182,13 +182,13 @@ where $c_{k-1}$ is the carry bit into position $k$.
 \label{fig:gp_generator}
 \end{figure}
 
-The carry bits could be calculated as follows:
+The carry bits can be calculated as follows:
 
 \begin{equation}\label{eq:carry-bit}
     c_{i+1} = a_i b_i + (a_i + b_i) c_i
 \end{equation}
 
-owing to the reason that the carry bit is 1 if
+due to the reason that the carry bit is 1 if
 
 \begin{itemize}
     \item Both of the two bits are $1$
@@ -212,7 +212,7 @@ We therefore deduce all the carry bits based on Equation~\ref{eq:carry-bit-deduc
 
 
 
-A full adder also takes the CarryIn of the formal bit compared to a half adder. It is displayed in Figure~\ref{fig:full_adder}. 
+A full adder also takes the CarryIn of the former bit compared to a half adder. It is displayed in Figure~\ref{fig:full_adder}. 
 
 
 \begin{figure}[h!]
@@ -222,7 +222,7 @@ A full adder also takes the CarryIn of the formal bit compared to a half adder. 
     \label{fig:full_adder}
 \end{figure}
 
-A classic 4-bit lookahead carry adder based on full-adders is shown in Figure~\ref{fig:lca}. We then combine the two 4-bit adder in series. The final two's complement circuit is shown in Figure~\ref{fig:tc-dq}. When the
+A classic 4-bit lookahead carry adder based on full adders is shown in Figure~\ref{fig:lca}. We then combine the two 4-bit adders in series. The final two's complement circuit is shown in Figure~\ref{fig:tc-dq}. When the
 sign bit is 1, it implies that we should invert its digits and add one to the least significant bit. In this case, the sign bit is passed to the first CarryIn input, and the operation of the full adder is identical to:
 \begin{align}\label{eq:carry-bits-result}
     \overline{a_3 a_2 a_1 a_0} &+ \overline{0000} \quad \text{with CarryIn } 1 \\
@@ -245,10 +245,10 @@ sign bit is 1, it implies that we should invert its digits and add one to the le
         \end{figure}
 
 The reason why we put in series of 4-bit Lookahead Carry Adder instead of series of 8 (or even 16, 32, ...)-bit Lookahead Carry Adder is to reduce the complexity of designing the circuit.
-As shown in Figure~{fig:lca}, to implement a 4-bit Lookahead Carry Adder, we need an AND gate with 5 inputs. This is already hard to fabricate in reality and it consume much more time and energy if we separate the AND gates.
+As shown in Figure~{fig:lca}, to implement a 4-bit Lookahead Carry Adder, we need an AND gate with 5 inputs. This is already hard to fabricate in reality and it consumes much more time and energy if we separate the AND gates.
 
-However, there are still spaces of optimization. This indeed is the implementation of a standard additionner between two 8-bit binary numbers. Here, we're only required to perform addition on binary numbers with 1.
-We could throw out 0s and full-adders and adopt half-adders.
+However, there are still spaces of optimization. This indeed is the implementation of a standard adder between two 8-bit binary numbers. Here, we're only required to perform addition on binary numbers with 1.
+We could throw out 0s and full adders and adopt half adders.
 
 Furthermore, since the other adder is always 0 in Equation~\ref{eq:carry-bits-result}, the G(enerate) signal is always 0. This implies for any valid value of $g_i$, they should be 0. Equations~\ref{eq:temp1} to~\ref{eq:temp2} could be transformed into:
 \begin{align}
@@ -277,15 +277,15 @@ The corresponding 8-bit two's complement circuit is shown in Figure~\ref{fig:tc-
     \caption{Optimized 8-bit Two's Complement Circuit (Divide and Conquer Method) Based on 4-bit Lookahead Carry Adder Proposed in Figure~\ref{fig:lca-optimize}}
     \label{fig:tc-dq-optimize}
     \end{figure}
-It seems feasible for $p$ relatively small. However, if $p$ is much more greater (e.g. to sum up two 64-bit binary numbers), the depth is still
-comparatively high. Calculation of depth and complexity of this circuit is shown in Secion~\ref{sec:q4}. The divide and conquer method is not fully implemented since we're only grouping up 4 bits together and then calculate them one by one. There are still spaces of improvement.
+It seems feasible for $p$ relatively small. However, if $p$ is much greater (e.g., to sum up two 64-bit binary numbers), the depth is still
+comparatively high. Calculation of depth and complexity of this circuit is shown in Section~\ref{sec:q4}. The divide and conquer method is not fully implemented since we're only grouping up 4 bits together and then calculating them one by one. There are still spaces for improvement.
 
 
 \subsubsection{Solution for binary numbers with much more bits}\label{sec:3-B}
 
-A real divide and conquer solution is like this: we separate the bits into groups of 2 bits, calculate the values separately, then comebine them into groups of 4 bits, then calculate the values separately, e.t.c.
+A real divide and conquer solution is like this: we separate the bits into groups of 2 bits, calculate the values separately, then combine them into groups of 4 bits, then calculate the values separately, etc.
 
-We analyse as follows (with some notations):
+We analyze as follows (with some notations):
 A 1-bit adder is: 
 \begin{equation}
     a_0 + b_0 = \overline{r_0s_0} \quad \text{with}\quad \begin{cases}
@@ -303,7 +303,7 @@ If we consider the carry from the former bit, knowing that
 \end{equation}
 
 (It is worthy to know that, since $t_0 = s_0 + 1$, we could add a NOT gate to calculate the value of $t_0$.)
-To execute ADD operation, four values ($r$, $s$, $R$, $t$) should be output so as to be passed on. $R$ could be understand as carry could be generated if it is excited by former bits.
+To execute the ADD operation, four values ($r$, $s$, $R$, $t$) should be output so as to be passed on. $R$ could be understood as a carry could be generated if it is excited by former bits.
 The implementation is shown in Figure~\ref{fig:1bit_adder}.
 
 \begin{figure}[h!]
@@ -313,27 +313,27 @@ The implementation is shown in Figure~\ref{fig:1bit_adder}.
 \label{fig:1bit_adder}
 \end{figure}
 
-To add two 2-bits binary numbers, we first calculate the four values of each corresponding bits. We name them $r_{1,0}, s_{1,0}, R_{1, 0}, t_{1,0}$ and $r_{1, 1}, s_{1, 1}, R_{1, 1}, t_{1, 1}$ accordingly.
+To add two 2-bit binary numbers, we first calculate the four values of each corresponding bit. We name them $r_{1,0}, s_{1,0}, R_{1,0}, t_{1,0}$ and $r_{1,1}, s_{1,1}, R_{1,1}, t_{1,1}$ accordingly.
 Thus, a 2-bit adder is:
 \begin{equation}
     \overline{a_1 a_0} + \overline{b_1 b_0} = \overline{r_1 s_1 s_0} \quad \text{with} \quad \begin{cases}
         r_1 = r_{1,1} \vee (r_{1,0} \wedge R_{1,1}) \\
         s_1 = \begin{cases}
-        s_{1, 1} \; \text{if} \; r_{1, 0} = 0 \\
-        t_{1, 1} \; \text{if} \; r_{1, 0} = 1
+        s_{1,1} \; \text{if} \; r_{1,0} = 0 \\
+        t_{1,1} \; \text{if} \; r_{1,0} = 1
         \end{cases} \\
         s_0 \; \text{unchanged}
     \end{cases}
 \end{equation}
 
-Similarly, using the notation $1 + \overline{r_1 s_1 s_0} = \overline{R_1 t_1 t_0}$, the 2-bits Adder should calculate the value of $R_1$, $t_1$ and $t_0$ with expressions:
+Similarly, using the notation $1 + \overline{r_1 s_1 s_0} = \overline{R_1 t_1 t_0}$, the 2-bit Adder should calculate the value of $R_1$, $t_1$ and $t_0$ with expressions:
 
 \begin{equation}
     1 + \overline{r_1 s_1 s_0} = \overline{R_1 t_1 t_0} \quad \text{with} \quad \begin{cases}
     R_1 = r_{1,1} \vee (R_{1,1} \wedge R_{1,0}) \\ 
     t_1 = \begin{cases}
-        s_{1, 1} \; \text{if} \; R_{1, 0} = 0 \\
-        t_{1, 1} \; \text{if} \; R_{1, 0} = 1 
+        s_{1,1} \; \text{if} \; R_{1,0} = 0 \\
+        t_{1,1} \; \text{if} \; R_{1,0} = 1 
     \end{cases} \\
     t_0 \; \text{unchanged}
     \end{cases}
@@ -344,14 +344,14 @@ Similarly, using the notation $1 + \overline{r_1 s_1 s_0} = \overline{R_1 t_1 t_
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.45\textwidth]{assets/2bits_adder.png}
-\caption{Implementation of a 2-bits Adder with six values output. The 1-bit Adder displayed in Figure~\ref{fig:1bit_adder} is utilized.}
+\caption{Implementation of a 2-bit Adder with six values output. The 1-bit Adder displayed in Figure~\ref{fig:1bit_adder} is utilized.}
 \label{fig:2bits_adder}
 \end{figure}
 
 Corresponding circuit implementation is shown in Figure~\ref{fig:2bits_adder}.
 
 
-In general, to add between $2^p$-bits binary numbers where $p \in \mathbb{N}^*$ and $p \geq 1$, suppose that the calculation of two $2^{p-1}$-bits Adders are resp. $r_{1,0}, s_{2^{p-1},0}, \dots, s_{1,0}, t_{2^{p-1}, 0}, \dots, t_{1,0}, R_{1,0}$ and $r_{1,1},  s_{2^{p-1},1}, \dots, s_{1,1}, t_{2^{p-1}, 1}, \dots, t_{1,1}, R_{1,1}$, depending on values of $r_{1,0}$ and $R_{1,0}$:
+In general, to add between $2^p$-bit binary numbers where $p \in \mathbb{N}^*$ and $p \geq 1$, suppose that the calculation of two $2^{p-1}$-bit Adders are resp. $r_{1,0}, s_{2^{p-1},0}, \dots, s_{1,0}, t_{2^{p-1},0}, \dots, t_{1,0}, R_{1,0}$ and $r_{1,1}, s_{2^{p-1},1}, \dots, s_{1,1}, t_{2^{p-1},1}, \dots, t_{1,1}, R_{1,1}$, depending on values of $r_{1,0}$ and $R_{1,0}$:
 \begin{itemize}
     \item If $r_{1,0}=0$ and $R_{1,0}=0$, $r_1 = r_{1,1}$, $R_1 = r_{1,1}$,
     \begin{equation}
@@ -398,30 +398,30 @@ In general, to add between $2^p$-bits binary numbers where $p \in \mathbb{N}^*$ 
     \end{equation} 
 \end{itemize}
 
-Based on this analysis, a 4-bits Adder with ten values output is shown in Figure~\ref{fig:4bits_adder}, and a 8-bits Adder with eighteen values output is shown Figure~\ref{fig:8bits_adder}.
+Based on this analysis, a 4-bit Adder with ten values output is shown in Figure~\ref{fig:4bits_adder}, and an 8-bit Adder with eighteen values output is shown in Figure~\ref{fig:8bits_adder}.
 
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.45\textwidth]{assets/4bits_adder.png}
-\caption{Implementation of a 4-bits Adder with eight values output. The 2-bits Adder displayed in Figure~\ref{fig:2bits_adder} is utilized.}
+\caption{Implementation of a 4-bit Adder with eight values output. The 2-bit Adder displayed in Figure~\ref{fig:2bits_adder} is utilized.}
 \label{fig:4bits_adder}
 \end{figure}
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.45\textwidth]{assets/8bits_adder.png}
-\caption{Implementation of a 8-bits Adder with eighteen values output. The 4-bits Adder displayed in Figure~\ref{fig:4bits_adder} is utilized.}
+\caption{Implementation of an 8-bit Adder with eighteen values output. The 4-bit Adder displayed in Figure~\ref{fig:4bits_adder} is utilized.}
 \label{fig:8bits_adder}
 \end{figure}
 
-Using the 8-bits Adder implemented above, we design our final edition of the two's complement circuit: Using Multiplexer, the circuit is displayed in Figure~\ref{fig:twos_complement_course}.
+Using the 8-bit Adder implemented above, we design our final edition of the two's complement circuit: Using Multiplexer, the circuit is displayed in Figure~\ref{fig:twos_complement_course}.
 
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.45\textwidth]{assets/twos_complement_course.png}
-\caption{Implementation of a 8-bits Adder with eighteen values output. The 8-bits Adder displayed in Figure~\ref{fig:8bits_adder} is utilized.}
+\caption{Implementation of an 8-bit Adder with eighteen values output. The 8-bit Adder displayed in Figure~\ref{fig:8bits_adder} is utilized.}
 \label{fig:twos_complement_course}
 \end{figure}
 
@@ -432,23 +432,23 @@ Using the 8-bits Adder implemented above, we design our final edition of the two
 \subsubsection{Calculation for the first implementation}\label{sec:q4}
 
 
-For a 8-bit two's complement circuit implemented in Section~\ref{sec:3-A}, to calculate the depth and complexity of the circuit, we divide the circuit into two parts:
+For an 8-bit two's complement circuit implemented in Section~\ref{sec:3-A}, to calculate the depth and complexity of the circuit, we divide the circuit into two parts:
 \begin{enumerate}
-    \item In the \textbf{inversion stage}, all components are inversed simultaneously, thus depth is 1 and amount of NOT gates required is 7.
-    \item In the \textbf{addition stage}, the two 4-bit lookahead carry adder one after another. They are connected in series.
-          For a single 4-bit lookahead, its depth is 2 since one for the AND gates and one for the Half-Adders. The number of gates utilized is:
+    \item In the \textbf{inversion stage}, all components are inverted simultaneously, thus depth is 1 and the number of NOT gates required is 7.
+    \item In the \textbf{addition stage}, the two 4-bit lookahead carry adders are connected in series.
+          For a single 4-bit lookahead adder, its depth is 2 since one for the AND gates and one for the Half-Adders. The number of gates utilized is:
           \begin{equation}
-            4 +4 \times 2 = 12
+            4 + 4 \times 2 = 12
           \end{equation}
           Since there are two lookahead carry adders, therefore, its depth is 4 and its complexity is 24.
 
 \end{enumerate}
 
-Therefore, for a 8-bit circuit, its depth is $1+4=5$ and its complexity is $7+24=31$.
+Therefore, for an 8-bit circuit, its depth is $1+4=5$ and its complexity is $7+24=31$.
 
-Now, for any $2^p$-bit two's complement circuit, the inversion stage is unchanged: the depth is 1 and the complexity is $2^p-1$ in this stage. We need to count how many 4-bit Lookahead adders needed.
+Now, for any $2^p$-bit two's complement circuit, the inversion stage is unchanged: the depth is 1 and the complexity is $2^p-1$ in this stage. We need to count how many 4-bit Lookahead adders are needed.
 
-The main concept is to divide the large binary number into groups of 4-bit binary numbers. After that, we put them into series. The amount of groups: 
+The main concept is to divide the large binary number into groups of 4-bit binary numbers. After that, we put them into series. The number of groups: 
 \begin{equation}
     \begin{cases}
         \frac{2^p}{4} = 2^{p-2} \quad &\text{if} \quad p \geq 2     \\
@@ -459,7 +459,7 @@ The main concept is to divide the large binary number into groups of 4-bit binar
 Therefore, The depth is $2\times 2^{p-2} = 2 ^{p-1}$ and the complexity is $12 \times 2^{p-2} = 3 \times 2^p$ in the addition stage.
 
 
-\textbf{Conclusion: For $p \geq 1$, The depth is $2^{p-1} + 1$ and the complexity is $2^p - 1 + 3 \times 2^p = 2^{p+2}-1$}.
+\textbf{Conclusion: For $p \geq 1$, the depth is $2^{p-1} + 1$ and the complexity is $2^p - 1 + 3 \times 2^p = 2^{p+2}-1$}.
 
 
 \subsubsection{Calculation for the second implementation}\label{sec:q4-2}
@@ -467,9 +467,9 @@ Therefore, The depth is $2\times 2^{p-2} = 2 ^{p-1}$ and the complexity is $12 \
 For the circuit implemented in Section~\ref{sec:3-B}, the depth could be calculated as follows:
 
 \begin{itemize}
-    \item In the \textbf{inversion stage}, the depth is 1 and the amount of NOT gates required is 7.
-    \item In the \textbf{addition stage}, suppose that to implement a $2^{p-1}$-bits adder where $p \in \mathbb{N}^*$ and $p \geq 1$, the depth in this stage (Note: its worthy to limit the range only in the addition stage) is $d_{p-1}$ and the complexity is $c_{p-1}$. 
-    Therefore, the depth of a $2^p$-bits adder in this stage is 
+    \item In the \textbf{inversion stage}, the depth is 1 and the number of NOT gates required is 7.
+    \item In the \textbf{addition stage}, suppose that to implement a $2^{p-1}$-bit adder where $p \in \mathbb{N}^*$ and $p \geq 1$, the depth in this stage (Note: it is worthy to limit the range only in the addition stage) is $d_{p-1}$ and the complexity is $c_{p-1}$. 
+    Therefore, the depth of a $2^p$-bit adder in this stage is 
     \begin{equation}
         d_p = d_{p-1} + 3
     \end{equation}
@@ -480,7 +480,7 @@ For the circuit implemented in Section~\ref{sec:3-B}, the depth could be calcula
     \end{equation}
 \end{itemize}
 
-We then calculate the the expression for $d_p$ and $c_p$ based on their recurrent expressions.
+We then calculate the expression for $d_p$ and $c_p$ based on their recurrent expressions.
 
 \begin{equation}
     d_p = \begin{cases}
@@ -499,10 +499,10 @@ The solution for the homogeneous part of Equation~\ref{eq:complexity} is $c_p^{(
 Therefore the expression of $k_p$ is 
 
 \begin{equation}
-    k_p = k_0 +  4p + 4 \times \sum_{i=1}^{p} \frac{1}{2}^{i} = k_0 + 4p+4- \frac{4}{2^p}
+    k_p = k_0 +  4p + 4 \times \sum_{i=1}^{p} \frac{1}{2^i} = k_0 + 4p+4- \frac{4}{2^p}
 \end{equation}
 
-Finally, From Figure~\ref{fig:1bit_adder}, $c_0 = 4$ therefore
+Finally, from Figure~\ref{fig:1bit_adder}, $c_0 = 4$ therefore
 
 \begin{equation}
     k_0 \times 2^0 = 4
@@ -517,13 +517,13 @@ $k_0 = 4$ thus the expression of $c_p$ is
 We could validate this result by calculating the amount of gates utilized from Figure~\ref{fig:1bit_adder} to \ref{fig:4bits_adder}, where $c_0 = 4$, $c_1=20$, $c_2=60$.
 
 
-\textbf{Conclusion: Therefore, after considering all of the two stages, as for a 8-bit two's complement circuit, the depth is $3p+3$ and the complexity is $(2+p)2^{p+2} + 3$.}
+\textbf{Conclusion: Therefore, after considering all of the two stages, as for an 8-bit two's complement circuit, the depth is $3p+3$ and the complexity is $(2+p)2^{p+2} + 3$.}
 
 \subsection{Question 5}
 
 In this section, we use the circuit of Figure~\ref{fig:tc-dq-optimize}.
 
-(Explanation: Since we provide multiple solutions in our projecte, we consider selecting one of them as feasible since it is not specified in the question. To export the circuit of Figure~\ref{fig:twos_complement} needs to change all
+(Explanation: Since we provide multiple solutions in our project, we consider selecting one of them as feasible since it is not specified in the question. To export the circuit of Figure~\ref{fig:twos_complement} needs to change all
 the output labels $R_1$ into some other alphabets, as we have tested that it would lead to errors, saying that the name $r$ and $R$ collide with each other.)
 
 We export the VHDL code based on the circuit designed in the Digital software and generate the code using gtkwave.
@@ -549,17 +549,17 @@ The corresponding simulation of signals is shown in Figure~\ref{fig:result-with-
 
 Analysis of the result:
 \begin{itemize}
-    \item Setting the delay of the multiplexer as 2 and the delay of the NOT gate as 1 allow us to directly exploit the result of the NOT gate after the result is calculated. (Figure~\ref{fig:analysis1})
-    \item The calculation of the two 4-bit Lookahead Carry Adder proved the fact the two adders are connected in series. One would begin to operate only after the other hass finished its calculation. (Figure~\ref{fig:analysis2})
+    \item Setting the delay of the multiplexer as 2 and the delay of the NOT gate as 1 allows us to directly exploit the result of the NOT gate after the result is calculated. (Figure~\ref{fig:analysis1})
+    \item The calculation of the two 4-bit Lookahead Carry Adder proved the fact the two adders are connected in series. One would begin to operate only after the other has finished its calculation. (Figure~\ref{fig:analysis2})
 \end{itemize}
 
-(An equivlent expression is shown in Figure~\ref{fig:delay}. It is worthy to note that this code cannot generate VHDL code for the reason that the delay component is not implemented in VHDL (at least not in Digital software))
+(An equivalent expression is shown in Figure~\ref{fig:delay}. It is worthy to note that this code cannot generate VHDL code for the reason that the delay component is not implemented in VHDL (at least not in Digital software))
 
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.5\textwidth]{assets/twos_complement_dq_copy_delay.png}
-    \caption{Equivalent Representation of the circuit combined with delated I/O, Gates and Multiplexers. This Representation is also useful to understand the Analysis 1. Part}
+    \caption{Equivalent Representation of the circuit combined with delayed I/O, Gates and Multiplexers. This Representation is also useful to understand the Analysis 1. Part}
     \label{fig:delay}
 \end{figure}
 
@@ -567,14 +567,14 @@ Analysis of the result:
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.5\textwidth]{assets/gtkwave-1.png}
-    \caption{Analysis 1: Observation of the time delay of the component {NOT Gate + Multiplexer}. After the signal is passed to the NOT Gate, the NOT Gate generate the result after 1 ns, and the multiplexer generate the result after 2 ns, which is time-efficient}
+    \caption{Analysis 1: Observation of the time delay of the component {NOT Gate + Multiplexer}. After the signal is passed to the NOT Gate, the NOT Gate generates the result after 1 ns, and the multiplexer generates the result after 2 ns, which is time-efficient}
     \label{fig:analysis1}
 \end{figure}
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.5\textwidth]{assets/gtkwave-2.png}
-    \caption{Analysis 2: Observation of the time delay of the two 4-bit Lookahead Carry Adder. The upper four signals correspond to the lower 4-bits of the output. (Note that here, $o_3$ has no actual meaning since the highest bit should be the sign bit)}
+    \caption{Analysis 2: Observation of the time delay of the two 4-bit Lookahead Carry Adders. The upper four signals correspond to the lower 4 bits of the output. (Note that here, $o_3$ has no actual meaning since the highest bit should be the sign bit)}
     \label{fig:analysis2}
 \end{figure}
 
@@ -598,13 +598,13 @@ First, we will introduce several elements embedded in our implementation in the 
 \subsubsection{Trigger}
 
 To synchronize all the signals in the system. We need a clock signal to control all the elements. The term trigger is used to synchronize the signals
-with the global status of the whole system. Figure~\ref{fig:triggers} compares three types of triggers based on different excitation mode. The uppermost, which is the simplest trigger could be excitated if
-the clock signal is high. The trigger in the middle could be excitated if two consecutive high clock signals are detected, and the third trigger could be excitated if two consecutive low clock signals are detected. Corresponding output is shown in Figure~\ref{fig:trigger-output}.
+with the global status of the whole system. Figure~\ref{fig:triggers} compares three types of triggers based on different excitation modes. The uppermost, which is the simplest trigger, could be excited if
+the clock signal is high. The trigger in the middle could be excited if two consecutive high clock signals are detected, and the third trigger could be excited if two consecutive low clock signals are detected. Corresponding output is shown in Figure~\ref{fig:trigger-output}.
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.5\textwidth]{assets/triggers.png}
-    \caption{Triggers of different mode}
+    \caption{Triggers of different modes}
     \label{fig:triggers}
 \end{figure}
 
