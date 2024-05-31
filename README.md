@@ -11,14 +11,16 @@ The PDF version of the report can be found [here](report/build/report.pdf).
 
 ## Guidance to execute gtkwave in Exercise 5
 
-First, reassure that `gtkwave` is installed on the server. If not, execute the following lines:
+Reassure that `gtkwave` is installed on the server. If not, execute the following lines:
 
 ```bash
 sudo apt-get update
 sudo apt-get install gtkwave
 ```
 
-You should then create a new folder containing all the necessary files (a VHDL file and a test-benchmark file), we will name them `circuit.vhdl` and `circuit_tb.vhdl` later on. Change the current directory into the upper folder of the files.
+For [Digital](https://github.com/hneemann/Digital) users: If you're using Digital, First export the circuit using `File -> Export -> Export to VHDL`. Ensure that Test cases have been written (`Components -> Misc. -> Test`) and has been tested correct (`Simulation -> Run Tests`). If all the requirements have been satisfied, you would find two files exported in your selected directory.
+
+You should then create a new folder containing all of the two necessary files (a VHDL file and a test-benchmark file), we will name them `circuit.vhdl` and `circuit_tb.vhdl` later on. Change the current directory into the upper folder of the files.
 
 Now create a bash file, suppose that the name is `execute.sh`, type in the following command:
 
