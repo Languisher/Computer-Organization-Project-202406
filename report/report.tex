@@ -2,6 +2,7 @@
 \IEEEoverridecommandlockouts
 % The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
 \usepackage{cite}
+\usepackage{longtable}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{algorithmic}
 \usepackage{graphicx}
@@ -587,15 +588,58 @@ Analysis of the result:
 
 \section{Question 6-10}
 
-NOT COMPLETED !!!!!!
+\subsection{Question 6}
+
+To execute the operation, it is essential to:
+\begin{enumerate}
+    \item Fetch the number from the Memory
+    \item Load them in the Register
+    \item The ALU read the numbers in the Registers, and output
+    \item We load the output result in the Memory.
+\end{enumerate}
+
+Consequently, with $M_1$, $M_2$, $M_3$ Memories and $R_1$, $R_2$ Registers, the commands are:
+
+LOAD M1, R1, 0    
+
+LOAD M2, R2, 0    
+
+SUB R1, R2, R1    
+
+STORE R1, M3, 0   
+
+\subsection{Question 7}
+
+The question proposed that four instruction should execute in series, which we will note them:
+\begin{itemize}
+    \item FI: Fetch instruction
+    \item PO: Process Operand
+    \item EI: Execute Instruction
+    \item WO: Write Operand
+\end{itemize}
+
+Undoubtly, the substraction command should wait before the binary numbers have been successfully stored into the corresponding Registers.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{assets/question-7.png}
+    \caption{Pipeline to Execute the Insturctions}
+    \label{fig:Question-7}
+\end{figure}
+
+\subsection{Question 8}
+
+
+TBD
 
 \subsection{Question 9}
 
 First, we will introduce several elements embedded in our implementation in the sections later on.
 
-\subsubsection{Memory}
 
 \subsubsection{Trigger}
+
+
 
 To synchronize all the signals in the system. We need a clock signal to control all the elements. The term trigger is used to synchronize the signals
 with the global status of the whole system. Figure~\ref{fig:triggers} compares three types of triggers based on different excitation modes. The uppermost, which is the simplest trigger, could be excited if
@@ -614,6 +658,116 @@ the clock signal is high. The trigger in the middle could be excited if two cons
     \caption{Triggered output figure of different triggers}
     \label{fig:trigger-output}
 \end{figure}
+
+In our implementation, an \textbf{impulse signal} is essential so as to enable the operations. For example, it is utile when we wish to execute the read command to a certain Memory block and to isolate it or switch if off in order for saving energy consumption.
+
+Using the property of a D Flip-Flop Trigger, we output 1 and then 0 in series. Detailed implementation could be found in Figure~\ref{fig:impulse-output}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{assets/impulse-output.png}
+    \caption{Impulse Signal Trigger}
+    \label{fig:impulse-output}
+\end{figure}
+
+
+\subsubsection{Memory}
+
+
+
+A real memory should consist of several small blocks of storage, each used to store its own numbers. In our implementation, a large memory contains three smaller memory blocks, each capable of storing an 8-bit number.
+
+We proceed step by step.
+
+An 1-bit Memory is implemented in Figure~\ref{fig:1-bit-memory}. To store a single bit, a D Filp-Flop Trigger is utilized. First of all, this 1-bit Memory should be Selected (the input of Operate input should be 1) to function.
+When the Read/Write input is 1, the write mode is initiated, and the input is written into the memory. Correspondingly, when the Read/Write input is 0, the read mode is initiated, and the value stored in the memory is output.
+The Operate signal should be an impulse signal (which would be implemented later on) in order to automatically switch off the operation mode of the memory after the operation has been executed.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{assets/1-bit-memory.png}
+    \caption{Implementation of 1-bit Memory}
+    \label{fig:1-bit-memory}
+\end{figure}
+
+To store a 8-bits Memory, we parallize the process of storing 8 1-bit binary numbers, which is shown in Figure~\ref{fig:8-bits-memory}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{assets/8-bit-memory.png}
+    \caption{Implementation of a single 8-bit Memory Block, the 1-bit Memory shown in Figure~\ref{fig:1-bit-memory} is utilized.}
+    \label{fig:8-bits-memory}
+\end{figure}
+
+The final structure of the 3-blocks Memory should have a clock cycle signal input to facilitate synchronization when connected to a circuit and to enable sequential execution of instructions. In our implementation, we need the clock to indicate when internal operations are complete. Since the memory contains three smaller memory blocks, the input needs to specify which block should store or retrieve the number.
+Traditionally, this should be done by reading the address of the memory block, but we will simplify the process here by directingly reading the indice. After type-in the number to be stored and the memory block to be written in or to be read, when the value of the clock input is 1, it begin to read to the memory block or export the stored value to the output. The implementation is shown in Figure~\ref{fig:8-bits-memories}.
+
+\begin{figure*}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{assets/8-bit-memories.png}
+    \caption{Implementation of a 8-bit Memory, three blocks of a 8-bit Memory shown in Figure~\ref{fig:8-bits-memory} is utilized.}
+    \label{fig:8-bits-memories}
+\end{figure*}
+
+\subsubsection{Register}
+
+A 8-bits register is simply bringing together 8 blocks of register, controlled by a clock signal and an enable signal. The register is implemented in Figure~\ref{fig:8-bits-register}.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.4\textwidth]{assets/8-bit-register.png}
+    \caption{Implementation of a 8-bits Register.}
+    \label{fig:8-bits-register}
+\end{figure}
+
+
+\subsubsection{Store Instruction}
+To store some binary numbers, we need the infomation of:
+\begin{itemize}
+    \item The 8-bit binary number to be input
+    \item Which block of the memory should it be stored into
+\end{itemize}
+
+We design the circuit by adding an D Filp-Flop Trigger to synchronize the operation with the global clock. Consider the case of storing data into any one of the three memories. The instruction circuit is shown in Figure~\ref{fig:store_3memories}.
+
+
+
+
+\subsubsection{Load Instruction}
+
+First, we implement the LOAD instruction from one single memory to one single register, ignoring all the unused parts.
+
+To make the circuit work, we should first STORE some valid binary numbers then LOAD the numbers from the memory to a certain register.
+
+
+Suppose that we have prepared the STORE and LOAD instructions in separate places. Ensuring the sequential order by applying a D Flip-Flop trigger, and connect to the memory block using a multiplexer to determine which block of memory should be 
+visited depend on different instructions.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{assets/load.png}
+    \caption{Implementation of the LOAD instruction from a single memory to a single register.}
+    \label{fig:load}
+\end{figure}
+
+
+The implementation of the STORE and LOAD instructions to all of the memories and all of the registers is implemented in Figure~\ref{fig:load+store+3+2}.
+
+\begin{figure*}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{assets/store.png}
+    \caption{Implementation of the STORE instruction to all of the memories.}
+    \label{fig:store_3memories}
+\end{figure*}
+
+\begin{figure*}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{assets/load+store+3+2.png}
+    \caption{Implementation of the LOAD instruction to all of the memories and all of the registers.}
+    \label{fig:load+store+3+2}
+\end{figure*}
+
+
+\subsection{Question 10}
 
 
 
