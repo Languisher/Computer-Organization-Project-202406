@@ -4,20 +4,6 @@
   <attributes/>
   <visualElements>
     <visualElement>
-      <elementName>Clock</elementName>
-      <elementAttributes>
-        <entry>
-          <string>rotation</string>
-          <rotation rotation="1"/>
-        </entry>
-        <entry>
-          <string>Label</string>
-          <string>Clk</string>
-        </entry>
-      </elementAttributes>
-      <pos x="640" y="220"/>
-    </visualElement>
-    <visualElement>
       <elementName>In</elementName>
       <elementAttributes>
         <entry>
@@ -361,7 +347,7 @@
           <string>Output_0</string>
         </entry>
       </elementAttributes>
-      <pos x="2080" y="-820"/>
+      <pos x="1720" y="-820"/>
     </visualElement>
     <visualElement>
       <elementName>Out</elementName>
@@ -375,7 +361,7 @@
           <string>Output_1</string>
         </entry>
       </elementAttributes>
-      <pos x="2080" y="-840"/>
+      <pos x="1720" y="-840"/>
     </visualElement>
     <visualElement>
       <elementName>Out</elementName>
@@ -389,7 +375,7 @@
           <string>Output_2</string>
         </entry>
       </elementAttributes>
-      <pos x="2080" y="-860"/>
+      <pos x="1720" y="-860"/>
     </visualElement>
     <visualElement>
       <elementName>Out</elementName>
@@ -403,7 +389,7 @@
           <string>Output_3</string>
         </entry>
       </elementAttributes>
-      <pos x="2080" y="-880"/>
+      <pos x="1720" y="-880"/>
     </visualElement>
     <visualElement>
       <elementName>Out</elementName>
@@ -417,7 +403,7 @@
           <string>Output_4</string>
         </entry>
       </elementAttributes>
-      <pos x="2080" y="-900"/>
+      <pos x="1720" y="-900"/>
     </visualElement>
     <visualElement>
       <elementName>Out</elementName>
@@ -431,7 +417,7 @@
           <string>Output_5</string>
         </entry>
       </elementAttributes>
-      <pos x="2080" y="-920"/>
+      <pos x="1720" y="-920"/>
     </visualElement>
     <visualElement>
       <elementName>Out</elementName>
@@ -445,7 +431,7 @@
           <string>Output_6</string>
         </entry>
       </elementAttributes>
-      <pos x="2080" y="-940"/>
+      <pos x="1720" y="-940"/>
     </visualElement>
     <visualElement>
       <elementName>Out</elementName>
@@ -459,7 +445,7 @@
           <string>Output_7</string>
         </entry>
       </elementAttributes>
-      <pos x="2080" y="-960"/>
+      <pos x="1720" y="-960"/>
     </visualElement>
     <visualElement>
       <elementName>8-bit-memory.dig</elementName>
@@ -501,6 +487,20 @@
       </elementAttributes>
       <pos x="700" y="120"/>
     </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>Enable</string>
+        </entry>
+      </elementAttributes>
+      <pos x="640" y="220"/>
+    </visualElement>
   </visualElements>
   <wires>
     <wire>
@@ -517,7 +517,7 @@
     </wire>
     <wire>
       <p1 x="1320" y="-900"/>
-      <p2 x="2080" y="-900"/>
+      <p2 x="1720" y="-900"/>
     </wire>
     <wire>
       <p1 x="860" y="-260"/>
@@ -549,7 +549,7 @@
     </wire>
     <wire>
       <p1 x="1560" y="-840"/>
-      <p2 x="2080" y="-840"/>
+      <p2 x="1720" y="-840"/>
     </wire>
     <wire>
       <p1 x="800" y="-200"/>
@@ -613,7 +613,7 @@
     </wire>
     <wire>
       <p1 x="1240" y="-920"/>
-      <p2 x="2080" y="-920"/>
+      <p2 x="1720" y="-920"/>
     </wire>
     <wire>
       <p1 x="600" y="-920"/>
@@ -645,7 +645,7 @@
     </wire>
     <wire>
       <p1 x="1480" y="-860"/>
-      <p2 x="2080" y="-860"/>
+      <p2 x="1720" y="-860"/>
     </wire>
     <wire>
       <p1 x="600" y="-860"/>
@@ -709,7 +709,7 @@
     </wire>
     <wire>
       <p1 x="1160" y="-940"/>
-      <p2 x="2080" y="-940"/>
+      <p2 x="1720" y="-940"/>
     </wire>
     <wire>
       <p1 x="600" y="-940"/>
@@ -749,7 +749,7 @@
     </wire>
     <wire>
       <p1 x="1400" y="-880"/>
-      <p2 x="2080" y="-880"/>
+      <p2 x="1720" y="-880"/>
     </wire>
     <wire>
       <p1 x="600" y="-880"/>
@@ -757,7 +757,7 @@
     </wire>
     <wire>
       <p1 x="1640" y="-820"/>
-      <p2 x="2080" y="-820"/>
+      <p2 x="1720" y="-820"/>
     </wire>
     <wire>
       <p1 x="600" y="-820"/>
@@ -817,7 +817,7 @@
     </wire>
     <wire>
       <p1 x="1080" y="-960"/>
-      <p2 x="2080" y="-960"/>
+      <p2 x="1720" y="-960"/>
     </wire>
     <wire>
       <p1 x="600" y="-960"/>

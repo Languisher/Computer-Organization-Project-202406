@@ -412,7 +412,7 @@ Based on this analysis, a 4-bit Adder with ten values output is shown in Figure~
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.45\textwidth]{assets/8bits_adder.png}
-\caption{Implementation of an 8-bit Adder with eighteen values output. The 4-bit Adder displayed in Figure~\ref{fig:4bits_adder} is utilized.}
+\caption{Implementation of an 8-bits Adder with eighteen values output. The 4-bit Adder displayed in Figure~\ref{fig:4bits_adder} is utilized.}
 \label{fig:8bits_adder}
 \end{figure}
 
@@ -422,7 +422,7 @@ Using the 8-bit Adder implemented above, we design our final edition of the two'
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.45\textwidth]{assets/twos_complement_course.png}
-\caption{Implementation of an 8-bit Adder with eighteen values output. The 8-bit Adder displayed in Figure~\ref{fig:8bits_adder} is utilized.}
+\caption{Implementation of an 8-bits Two's Complement Circuit with Divide and Conquer Method. The 8-bit Adder displayed in Figure~\ref{fig:8bits_adder} is utilized.}
 \label{fig:twos_complement_course}
 \end{figure}
 
@@ -642,22 +642,8 @@ First, we will introduce several elements embedded in our implementation in the 
 
 
 To synchronize all the signals in the system. We need a clock signal to control all the elements. The term trigger is used to synchronize the signals
-with the global status of the whole system. Figure~\ref{fig:triggers} compares three types of triggers based on different excitation modes. The uppermost, which is the simplest trigger, could be excited if
-the clock signal is high. The trigger in the middle could be excited if two consecutive high clock signals are detected, and the third trigger could be excited if two consecutive low clock signals are detected. Corresponding output is shown in Figure~\ref{fig:trigger-output}.
+with the global status of the whole system. 
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.5\textwidth]{assets/triggers.png}
-    \caption{Triggers of different modes}
-    \label{fig:triggers}
-\end{figure}
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.3\textwidth]{assets/trigger-output.png}
-    \caption{Triggered output figure of different triggers}
-    \label{fig:trigger-output}
-\end{figure}
 
 In our implementation, an \textbf{impulse signal} is essential so as to enable the operations. For example, it is utile when we wish to execute the read command to a certain Memory block and to isolate it or switch if off in order for saving energy consumption.
 
@@ -694,7 +680,7 @@ To store a 8-bits Memory, we parallize the process of storing 8 1-bit binary num
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.5\textwidth]{assets/8-bit-memory.png}
+    \includegraphics[width=0.4\textwidth]{assets/8-bit-memory.png}
     \caption{Implementation of a single 8-bit Memory Block, the 1-bit Memory shown in Figure~\ref{fig:1-bit-memory} is utilized.}
     \label{fig:8-bits-memory}
 \end{figure}
@@ -702,19 +688,19 @@ To store a 8-bits Memory, we parallize the process of storing 8 1-bit binary num
 The final structure of the 3-blocks Memory should have a clock cycle signal input to facilitate synchronization when connected to a circuit and to enable sequential execution of instructions. In our implementation, we need the clock to indicate when internal operations are complete. Since the memory contains three smaller memory blocks, the input needs to specify which block should store or retrieve the number.
 Traditionally, this should be done by reading the address of the memory block, but we will simplify the process here by directingly reading the indice. After type-in the number to be stored and the memory block to be written in or to be read, when the value of the clock input is 1, it begin to read to the memory block or export the stored value to the output. The implementation is shown in Figure~\ref{fig:8-bits-memories}.
 
-\begin{figure*}[h!]
+\begin{figure}[h!]
     \centering
-    \includegraphics[width=\textwidth]{assets/8-bit-memories.png}
+    \includegraphics[width=0.5\textwidth]{assets/8-bit-memories.png}
     \caption{Implementation of a 8-bit Memory, three blocks of a 8-bit Memory shown in Figure~\ref{fig:8-bits-memory} is utilized.}
     \label{fig:8-bits-memories}
-\end{figure*}
+\end{figure}
 
 \subsubsection{Register}
 
 A 8-bits register is simply bringing together 8 blocks of register, controlled by a clock signal and an enable signal. The register is implemented in Figure~\ref{fig:8-bits-register}.
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.4\textwidth]{assets/8-bit-register.png}
+    \includegraphics[width=0.3\textwidth]{assets/8-bit-register.png}
     \caption{Implementation of a 8-bits Register.}
     \label{fig:8-bits-register}
 \end{figure}
@@ -727,7 +713,17 @@ To store some binary numbers, we need the infomation of:
     \item Which block of the memory should it be stored into
 \end{itemize}
 
-We design the circuit by adding an D Filp-Flop Trigger to synchronize the operation with the global clock. Consider the case of storing data into any one of the three memories. The instruction circuit is shown in Figure~\ref{fig:store_3memories}.
+We design the circuit by adding an D Filp-Flop Trigger to synchronize the operation with the global clock. The circuit to implement the store instruction for one single memory is shown in Figure~\ref{fig:store_1bit}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{assets/store_1bit.png}
+    \caption{Implementation of the STORE instruction to one single memory.}
+    \label{fig:store_1bit}
+\end{figure}
+
+
+Consider the case of storing data into any one of the three memories. The instruction circuit is shown in Figure~\ref{fig:store_3memories}.
 
 
 
@@ -752,6 +748,76 @@ visited depend on different instructions.
 
 The implementation of the STORE and LOAD instructions to all of the memories and all of the registers is implemented in Figure~\ref{fig:load+store+3+2}.
 
+
+
+\subsection{Question 10}
+
+\subsubsection{Component: ALU}
+First, we need to design the ALU. Since we have already implemented the 8-bits adder and a two's complement circuit, we could directly utilize them to implement the ALU.
+
+The ALU that we have designed could perform addition and subtraction operations, we assume that binary numbers are stored in the form of two's complement, whether the number is in the register or in the memory.
+The implementation is shown in Figure~\ref{fig:alu}, we utilize the two's complement component implemented in Figure~\ref{fig:twos_complement_course}. It's worthy to mention that the substraction of two binary numbers could be achieved by adding the two's complement of the second number to the first number. The ALU output the result in the form of two's complement.
+
+
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{assets/alu.png}
+    \caption{Implementation of the ALU}
+    \label{fig:alu}
+\end{figure}
+
+\subsubsection{Connections between components}
+
+First and foremost, we must consider all the inter-connected components in the system. 
+
+We would analyse the connections between the components in the following order:
+
+\begin{itemize}
+    \item \textit{Memory}: Input comes from the output of the Register or the given instruction, and the output is connected to the input of the Register.
+    \item \textit{Register}: Input comes from the output of the Memory or the output of the ALU, and the output is connected to the input of the ALU or the input of the Memory.
+    \item \textit{ALU}: Input comes from the output of the Register, and the output is connected to the input of the Register.
+\end{itemize}
+
+To select between different inputs, we need to use a multiplexer.
+
+We divide the implementation into three steps. First, we implement the part of the memory, which is shown in Figure \ref{fig:all-instructions-1}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{assets/all-instructions-1.png}
+    \caption{Implementation of all the instructions: Step 1}
+    \label{fig:all-instructions-1}
+\end{figure}
+
+Then, we add the part of the register, which is shown in Figure \ref{fig:all-instructions-2}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{assets/all-instructions-2.png}
+    \caption{Implementation of all the instructions: Step 2}
+    \label{fig:all-instructions-2}
+\end{figure}
+
+Finally, we add the part of the ALU with some tiny adjustments. The final version is shown in Figure \ref{fig:all-instructions-3}.
+
+
+\textit{How to use the circuit:}
+
+\begin{enumerate}
+    \item Though it is not mentioned in the question, the numbers has to be first stored into the memories, then they could be fetched by registers. Thus, we must store the two 8-bits binary numbers into the memories.
+    \textit{How to store the numbers?} For example, you would like to store the number 15 to the first memory block, you should set the input of $i_3$, $i_2$, $i_1$, $i_0$ and $\text{To}m_1$ to 1 and left the others 0. Then, (note: these two steps should be done in sequence) set the input of STORE to 1. Similarly, if you want to store a number to the second memory, set the $\text{To}m_2$ to 1 then press the STORE button.
+
+    \item Afterwards, we should LOAD the numbers from the memories to the registers. For example, now we want to fetch the data from the first memory block to the first register. Before everything, clean up the former input. Then, set the input of $\text{From}m_1$ and $\text{To}r_1$ to 1 and left the others 0. After that, set the input of LOAD to 1.
+    \item To subtract the two numbers, set up the register that you wish to store the result. For example, if we want to store the result into the second register, we should set the input of $\text{To}r_2$ to 1 and left the others 0. Then, set the input of SUB to 1.
+
+    \item Finally, we should store the result into the memory. For example, if we want to store the result into the third memory block, set the input of $\text{From}r_2$ and $\text{To}m_3$ to 1 and left the others 0. Then, set the input of STORE to 1.
+
+\end{enumerate}
+
+
+
 \begin{figure*}[h!]
     \centering
     \includegraphics[width=\textwidth]{assets/store.png}
@@ -766,9 +832,11 @@ The implementation of the STORE and LOAD instructions to all of the memories and
     \label{fig:load+store+3+2}
 \end{figure*}
 
-
-\subsection{Question 10}
-
-
+\begin{figure*}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{assets/all-instructions.png}
+    \caption{Implementation of all the instructions}
+    \label{fig:all-instructions-3}
+\end{figure*}
 
 \end{document}

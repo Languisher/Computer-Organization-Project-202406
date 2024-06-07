@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.19)  2 JUN 2024 04:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.19)  7 JUN 2024 23:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -505,98 +505,132 @@ Overfull \hbox (6.0pt too wide) in paragraph at lines 625--626
  [][] 
  []
 
-<assets/triggers.png, id=78, 738.76pt x 374.39874pt>
-File: assets/triggers.png Graphic file (type png)
-<use assets/triggers.png>
-Package pdftex.def Info: assets/triggers.png  used on input line 650.
-(pdftex.def)             Requested size: 258.0pt x 130.75017pt.
-
-Overfull \hbox (6.0pt too wide) in paragraph at lines 650--651
- [][] 
- []
-
-<assets/trigger-output.png, id=79, 377.41pt x 175.65625pt>
-File: assets/trigger-output.png Graphic file (type png)
-<use assets/trigger-output.png>
-Package pdftex.def Info: assets/trigger-output.png  used on input line 657.
-(pdftex.def)             Requested size: 154.80157pt x 72.049pt.
-[8 <./assets/gtkwave-1.png> <./assets/gtkwave-2.png> <./assets/gtkwave.png> <./assets/question-7.png> <./assets/triggers.png> <./assets/trigger-output.png>]
-<assets/impulse-output.png, id=90, 708.6475pt x 130.4875pt>
+<assets/impulse-output.png, id=78, 708.6475pt x 130.4875pt>
 File: assets/impulse-output.png Graphic file (type png)
 <use assets/impulse-output.png>
-Package pdftex.def Info: assets/impulse-output.png  used on input line 668.
+Package pdftex.def Info: assets/impulse-output.png  used on input line 654.
 (pdftex.def)             Requested size: 258.0pt x 47.50706pt.
 
-Overfull \hbox (6.0pt too wide) in paragraph at lines 668--669
+Overfull \hbox (6.0pt too wide) in paragraph at lines 654--655
  [][] 
  []
 
-<assets/1-bit-memory.png, id=91, 1684.2925pt x 672.5125pt>
+<assets/1-bit-memory.png, id=79, 906.38625pt x 320.19624pt>
 File: assets/1-bit-memory.png Graphic file (type png)
 <use assets/1-bit-memory.png>
-Package pdftex.def Info: assets/1-bit-memory.png  used on input line 688.
-(pdftex.def)             Requested size: 258.0pt x 103.00694pt.
+Package pdftex.def Info: assets/1-bit-memory.png  used on input line 674.
+(pdftex.def)             Requested size: 258.0pt x 91.1396pt.
 
-Overfull \hbox (6.0pt too wide) in paragraph at lines 688--689
+Overfull \hbox (6.0pt too wide) in paragraph at lines 674--675
  [][] 
  []
 
-<assets/8-bit-memory.png, id=92, 1252.68pt x 2294.5725pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<assets/8-bit-memory.png, id=80, 626.34pt x 1151.30125pt>
 File: assets/8-bit-memory.png Graphic file (type png)
 <use assets/8-bit-memory.png>
-Package pdftex.def Info: assets/8-bit-memory.png  used on input line 697.
-(pdftex.def)             Requested size: 258.0pt x 472.56117pt.
-
-Overfull \hbox (6.0pt too wide) in paragraph at lines 697--698
- [][] 
- []
-
+Package pdftex.def Info: assets/8-bit-memory.png  used on input line 683.
+(pdftex.def)             Requested size: 206.39685pt x 379.386pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<assets/8-bit-memories.png, id=93, 3587.4025pt x 2575.6225pt>
+[8 <./assets/gtkwave-1.png> <./assets/gtkwave-2.png> <./assets/gtkwave.png> <./assets/question-7.png> <./assets/impulse-output.png>]
+<assets/8-bit-memories.png, id=90, 2864.7025pt x 2611.7575pt>
 File: assets/8-bit-memories.png Graphic file (type png)
 <use assets/8-bit-memories.png>
-Package pdftex.def Info: assets/8-bit-memories.png  used on input line 707.
-(pdftex.def)             Requested size: 516.0pt x 370.44919pt.
+Package pdftex.def Info: assets/8-bit-memories.png  used on input line 693.
+(pdftex.def)             Requested size: 258.0pt x 235.20744pt.
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Overfull \hbox (6.0pt too wide) in paragraph at lines 693--694
+ [][] 
+ []
 
-<assets/8-bit-register.png, id=94, 971.63pt x 1497.595pt>
+<assets/8-bit-register.png, id=91, 971.63pt x 1497.595pt>
 File: assets/8-bit-register.png Graphic file (type png)
 <use assets/8-bit-register.png>
-Package pdftex.def Info: assets/8-bit-register.png  used on input line 717.
-(pdftex.def)             Requested size: 206.39685pt x 318.11476pt.
+Package pdftex.def Info: assets/8-bit-register.png  used on input line 703.
+(pdftex.def)             Requested size: 154.80157pt x 238.59178pt.
+[9 <./assets/1-bit-memory.png> <./assets/8-bit-memory.png> <./assets/8-bit-memories.png> <./assets/8-bit-register.png>]
+<assets/store_1bit.png, id=99, 1079.03125pt x 557.08125pt>
+File: assets/store_1bit.png Graphic file (type png)
+<use assets/store_1bit.png>
+Package pdftex.def Info: assets/store_1bit.png  used on input line 720.
+(pdftex.def)             Requested size: 258.0pt x 133.2007pt.
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Overfull \hbox (6.0pt too wide) in paragraph at lines 720--721
+ [][] 
+ []
 
-[9 <./assets/impulse-output.png> <./assets/1-bit-memory.png> <./assets/8-bit-memory.png>]
-<assets/load.png, id=101, 2184.16pt x 1332.98pt>
+<assets/load.png, id=100, 2184.16pt x 1332.98pt>
 File: assets/load.png Graphic file (type png)
 <use assets/load.png>
-Package pdftex.def Info: assets/load.png  used on input line 747.
+Package pdftex.def Info: assets/load.png  used on input line 743.
 (pdftex.def)             Requested size: 258.0pt x 157.44891pt.
 
-Overfull \hbox (6.0pt too wide) in paragraph at lines 747--748
+Overfull \hbox (6.0pt too wide) in paragraph at lines 743--744
+ [][] 
+ []
+
+<assets/alu.png, id=101, 2127.95pt x 1776.6375pt>
+File: assets/alu.png Graphic file (type png)
+<use assets/alu.png>
+Package pdftex.def Info: assets/alu.png  used on input line 766.
+(pdftex.def)             Requested size: 258.0pt x 215.38315pt.
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 766--767
+ [][] 
+ []
+
+<assets/all-instructions-1.png, id=102, 4191.66pt x 5847.8475pt>
+File: assets/all-instructions-1.png Graphic file (type png)
+<use assets/all-instructions-1.png>
+Package pdftex.def Info: assets/all-instructions-1.png  used on input line 789.
+(pdftex.def)             Requested size: 258.0pt x 359.86803pt.
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 789--790
  [][] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<assets/store.png, id=102, 2975.115pt x 1234.6125pt>
-File: assets/store.png Graphic file (type png)
-<use assets/store.png>
-Package pdftex.def Info: assets/store.png  used on input line 757.
-(pdftex.def)             Requested size: 516.0pt x 214.12004pt.
+<assets/all-instructions-2.png, id=103, 5637.06pt x 5918.11pt>
+File: assets/all-instructions-2.png Graphic file (type png)
+<use assets/all-instructions-2.png>
+Package pdftex.def Info: assets/all-instructions-2.png  used on input line 798.
+(pdftex.def)             Requested size: 258.0pt x 270.8186pt.
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 798--799
+ [][] 
+ []
+
+[10 <./assets/store_1bit.png> <./assets/load.png> <./assets/alu.png>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<assets/load+store+3+2.png, id=103, 5645.09pt x 3218.0225pt>
+<assets/store.png, id=110, 3256.165pt x 2286.5425pt>
+File: assets/store.png Graphic file (type png)
+<use assets/store.png>
+Package pdftex.def Info: assets/store.png  used on input line 823.
+(pdftex.def)             Requested size: 516.0pt x 362.33041pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<assets/load+store+3+2.png, id=111, 5645.09pt x 3218.0225pt>
 File: assets/load+store+3+2.png Graphic file (type png)
 <use assets/load+store+3+2.png>
-Package pdftex.def Info: assets/load+store+3+2.png  used on input line 764.
+Package pdftex.def Info: assets/load+store+3+2.png  used on input line 830.
 (pdftex.def)             Requested size: 516.0pt x 294.12701pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<assets/all-instructions.png, id=112, 5986.365pt x 7403.66pt>
+File: assets/all-instructions.png Graphic file (type png)
+<use assets/all-instructions.png>
+Package pdftex.def Info: assets/all-instructions.png  used on input line 837.
+(pdftex.def)             Requested size: 516.0pt x 638.05801pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -611,24 +645,20 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[10
-
- <./assets/8-bit-memories.png>] [11
-
- <./assets/8-bit-register.png> <./assets/load.png>] [12 <./assets/store.png> <./assets/load+store+3+2.png>] (build/report.aux) ) 
+[11 <./assets/all-instructions-1.png> <./assets/all-instructions-2.png>] [12 <./assets/store.png>] [13 <./assets/load+store+3+2.png>] [14 <./assets/all-instructions.png>] (build/report.aux) ) 
 Here is how much of TeX's memory you used:
- 4572 strings out of 478038
- 74036 string characters out of 5839071
- 390003 words of memory out of 5000000
- 22935 multiletter control sequences out of 15000+600000
+ 4596 strings out of 478038
+ 74703 string characters out of 5839071
+ 390033 words of memory out of 5000000
+ 22956 multiletter control sequences out of 15000+600000
  511012 words of font info for 109 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,15n,62p,527b,290s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on build/report.pdf (12 pages, 3214947 bytes).
+Output written on build/report.pdf (14 pages, 5258925 bytes).
 PDF statistics:
- 190 PDF objects out of 1000 (max. 8388607)
- 81 compressed objects within 1 object stream
+ 203 PDF objects out of 1000 (max. 8388607)
+ 86 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 151 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 166 words of extra memory for PDF output out of 10000 (max. 10000000)
 

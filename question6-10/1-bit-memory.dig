@@ -63,13 +63,13 @@
       <elementAttributes>
         <entry>
           <string>Label</string>
-          <string>Read/Write</string>
+          <string>Read/WriteMode</string>
         </entry>
       </elementAttributes>
       <pos x="-220" y="260"/>
     </visualElement>
     <visualElement>
-      <elementName>Clock</elementName>
+      <elementName>In</elementName>
       <elementAttributes>
         <entry>
           <string>rotation</string>
@@ -77,7 +77,7 @@
         </entry>
         <entry>
           <string>Label</string>
-          <string>Operate</string>
+          <string>Enable</string>
         </entry>
       </elementAttributes>
       <pos x="-140" y="360"/>
