@@ -1,4 +1,0 @@
-LOAD R1, M1, 0    ; Charger la valeur de M1 (15) dans R1
-LOAD R2, M2, 0    ; Charger la valeur de M2 (12) dans R2
-SUB R1, R2, R1    ; Soustraire R2 de R1 et stocker le résultat dans R1
-STORE R1, M3, 0   ; Stocker la valeur de R1 dans M3

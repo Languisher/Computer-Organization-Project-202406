@@ -4,9 +4,21 @@ Project of the course Computer Organization
 
 Author: Nan Lin and Yanxu Meng
 
-The requirement of the project can be found [here](assignment/Projet.pdf).
 
-The PDF version of the report can be found [here](report/build/report.pdf).
+## Structure of the repository
+
+The requirement of the project can be found in the [assignment/](assignment/Projet.pdf) folder.
+
+The PDF version of the report:
+- The english version can be found [here](report/build/report.pdf). (Note that Q7 is not included in the report)
+- The french version can be found [here](Rapport.pdf) in the root directory.
+
+The digital circuits generated in this project can be found in the [Digital/](Digital/) folder.
+
+
+The VHDL code of the circuits can be found in the [VHDL/](VHDL/) folder.
+
+The animation video of question 10 is displayed here: [video](q10-animation.mp4).
 
 
 ## Guidance to execute gtkwave in Exercise 5
